@@ -1009,6 +1009,10 @@ ul, ol { list-style: none; }
     margin-top: 4px;
     text-align: center;
   }
+  /* Unified 26px section title across all mobile slides */
+  .slide--categories .section-title,
+  .chocolatiers-inner .section-title,
+  .slide--newsletter .section-title { font-size: 26px; }
   .filter-tabs {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -1131,18 +1135,20 @@ ul, ol { list-style: none; }
     display: flex;
     flex-direction: column;
     flex: 1;
+    justify-content: flex-start;
     overflow: hidden;
   }
   .chocolatiers-inner .section-eyebrow { padding: 0 24px; font-size: 10px; margin-bottom: 0; }
-  .chocolatiers-inner .section-title   { font-size: 22px; padding: 10px 24px 0; margin-bottom: 0; }
+  .chocolatiers-inner .section-title   { font-size: 26px; padding: 10px 24px 0; margin-bottom: 0; }
   .chocolatiers-inner > p              { font-size: 13px; padding: 10px 24px 0; margin: 0; }
   .chocolatiers-inner > .btn           { margin: 16px auto 0 !important; }
-  /* Image area fills remaining space */
+  /* Image area — fills remaining space below text */
   .chocolatiers-grid {
     margin-top: 20px;
     grid-template-columns: 1fr;
     gap: 0;
     flex: 1;
+    min-height: 0;
     overflow: hidden;
   }
   .choc-img {
