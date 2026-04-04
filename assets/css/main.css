@@ -1007,7 +1007,7 @@ ul, ol { list-style: none; }
     font-size: 26px;
     margin-bottom: 14px;
     margin-top: 4px;
-    text-align: center;
+    text-align: right;
   }
   /* Unified 26px section title across all mobile slides */
   .slide--categories .section-title,
@@ -1059,7 +1059,7 @@ ul, ol { list-style: none; }
     padding: 0 20px;
     font-size: 22px;
     margin-bottom: 0;
-    text-align: center;
+    text-align: right;
     line-height: 1.25;
   }
 
