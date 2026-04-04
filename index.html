@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lindt – Homepage Concept Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #8B7440;
+      --gold-hover: #7a6535;
+      --black: #1a1a1a;
+      --white: #ffffff;
+      --gray-100: #f8f7f5;
+      --gray-200: #eeece8;
+      --border: #e0dbd2;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Raleway', 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--black);
+      background: var(--gray-100);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-link { text-decoration: none; color: var(--black); display: flex; flex-direction: column; align-items: center; }
+    .logo-text { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 40px; line-height: 1; }
+    .logo-sub { font-size: 7px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 3px; }
+
+    .header-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #9a9a9a;
+    }
+
+    /* Main */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+    }
+
+    .page-heading {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .page-sub {
+      font-size: 12px;
+      color: #9a9a9a;
+      text-align: center;
+      letter-spacing: 0.05em;
+      margin-bottom: 48px;
+    }
+
+    /* Cards grid */
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 880px;
+      width: 100%;
+    }
+
+    .concept-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .concept-card--disabled { opacity: 0.5; }
+
+    .concept-card h2 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+    }
+
+    .btn-concept {
+      display: inline-block;
+      padding: 13px 28px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--white);
+      border: 1px solid var(--gold);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.25s, border-color 0.25s;
+      text-align: center;
+      align-self: flex-start;
+    }
+
+    .btn-concept:hover { background: var(--gold-hover); border-color: var(--gold-hover); }
+    .btn-concept:disabled, .btn-concept--disabled {
+      background: #ccc;
+      border-color: #ccc;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* Notes */
+    .notes-section { border-top: 1px solid var(--border); padding-top: 20px; }
+
+    .notes-section h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--black);
+    }
+
+    .notes-section ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+    .notes-section ul li {
+      font-size: 13px;
+      color: #888;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .notes-section ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 16px;
+      line-height: 1.1;
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--gray-200);
+      color: #888;
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 11px;
+      color: #aaa;
+      border-top: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .site-header { padding: 16px 20px; }
+      .header-label { display: none; }
+      .concepts-grid { grid-template-columns: 1fr; }
+      main { padding: 40px 20px; }
+      .concept-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div></div>
+    <a href="index.html" class="logo-link" aria-label="Lindt">
+      <img src="assets/images/logo-Desktop.webp" alt="Lindt Maître Chocolatier" style="height:52px; width:auto;">
+    </a>
+    <span class="header-label">Concept Review</span>
+  </header>
+
+  <main>
+    <h1 class="page-heading">Homepage Concepts</h1>
+    <p class="page-sub">Select a concept to review the interactive prototype</p>
+
+    <div class="concepts-grid">
+
+      <!-- Concept 1 -->
+      <div class="concept-card">
+        <h2>Homepage Concept 1</h2>
+        <a href="concept-1.html" class="btn-concept">View Concept 1</a>
+        <div class="notes-section">
+          <h3>Notes</h3>
+          <ul>
+            <li>Point to be added later</li>
+            <li>Point to be added later</li>
+            <li>Point to be added later</li>
+            <li>Point to be added later</li>
+            <li>Point to be added later</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Concept 2 (coming soon) -->
+      <div class="concept-card concept-card--disabled">
+        <h2>Homepage Concept 2 <span class="coming-soon-badge">Coming Soon</span></h2>
+        <span class="btn-concept btn-concept--disabled">View Concept 2</span>
+        <div class="notes-section">
+          <h3>Notes</h3>
+          <ul>
+            <li>Point to be added later</li>
+            <li>Point to be added later</li>
+            <li>Point to be added later</li>
+            <li>Point to be added later</li>
+            <li>Point to be added later</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © 2025 Chocoladefabriken Lindt &amp; Sprüngli AG — Internal concept review. Not for distribution.
+  </footer>
+
+</body>
+</html>
