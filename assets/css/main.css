@@ -302,7 +302,7 @@ ul, ol { list-style: none; }
 .dot-nav {
   display: none;
   position: fixed;
-  left: 16px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   flex-direction: column;
@@ -887,7 +887,10 @@ ul, ol { list-style: none; }
 
   /* Show/hide helpers */
   .desktop-only { display: none !important; }
-  .mobile-only  { display: block; }
+  .mobile-only  { display: block !important; }
+  /* Elements needing flex layout override the block above */
+  .header-hamburger.mobile-only { display: flex !important; }
+  .header-main .header-icons.mobile-only { display: flex !important; }
   .logo-img--desktop { display: none !important; }
   .logo-img--mobile  { display: block !important; }
 
@@ -932,6 +935,23 @@ ul, ol { list-style: none; }
   .logo-text  { font-size: 30px; }
   .logo-sub   { font-size: 5.5px; letter-spacing: 0.14em; }
 
+  /* Hamburger — grid column 1 */
+  .header-hamburger {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--black);
+    padding: 4px 0;
+    transition: color 0.2s;
+  }
+  .header-hamburger:hover { color: var(--gold); }
+
+  /* Mobile icons — grid column 3, right-aligned */
+  .header-main .header-icons.mobile-only {
+    grid-column: 3;
+    justify-self: end;
+  }
   .header-icons { gap: 14px; }
   .header-icons button, .header-icons a { font-size: 16px; }
 
@@ -940,10 +960,10 @@ ul, ol { list-style: none; }
     position: fixed;
     left: 0; right: 0;
     z-index: 999; /* below header (1000) */
-    display: flex;
+    display: flex !important;
     align-items: center;
-    padding: 8px 16px;
-    gap: 10px;
+    padding: 8px 14px;
+    gap: 8px;
     background: var(--white);
     border-bottom: 1px solid var(--border);
     transition: top 0.35s ease;
@@ -952,10 +972,11 @@ ul, ol { list-style: none; }
     flex: 1;
     border: 1px solid var(--border);
     background: var(--gray-100);
-    padding: 8px 12px;
+    padding: 8px 14px;
     font-size: 13px;
     outline: none;
     color: var(--black);
+    border-radius: 50px;
   }
   .mobile-search-bar input:focus { border-color: var(--gold); }
   .mobile-search-bar input::placeholder { color: var(--gray-600); }
@@ -982,9 +1003,22 @@ ul, ol { list-style: none; }
     justify-content: center;
     overflow: hidden;
   }
-  .slide--products .section-title { font-size: 22px; margin-bottom: 14px; margin-top: 4px; }
-  .filter-tabs { flex-wrap: nowrap; overflow-x: auto; margin-bottom: 16px; scrollbar-width: none; }
+  .slide--products .section-title {
+    font-size: 26px;
+    margin-bottom: 14px;
+    margin-top: 4px;
+    text-align: center;
+  }
+  .filter-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 16px;
+    scrollbar-width: none;
+    justify-content: center;
+    padding-bottom: 2px;
+  }
   .filter-tabs::-webkit-scrollbar { display: none; }
+  .tab { white-space: nowrap; }
 
   .products-grid {
     display: flex;
@@ -995,26 +1029,32 @@ ul, ol { list-style: none; }
     padding-bottom: 4px;
     scrollbar-width: none;
     grid-template-columns: unset;
+    padding-left: 0;
   }
   .products-grid::-webkit-scrollbar { display: none; }
   .product-card {
     flex-shrink: 0;
-    width: calc(48vw - 20px);
+    width: calc(68vw - 20px);
     scroll-snap-align: start;
   }
   .product-name { font-size: 11px; }
-  .products-cta { text-align: left; }
+  .products-cta { text-align: center; }
 
   /* ── Categories mobile ───────────────────────────────────────── */
   .slide--categories {
-    padding: 20px 20px 16px;
+    padding: 58px 20px 16px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     overflow: hidden;
     background: var(--gray-100);
   }
-  .slide--categories .section-title { font-size: 20px; margin-bottom: 12px; }
+  .slide--categories .section-title {
+    font-size: 22px;
+    margin-bottom: 12px;
+    text-align: center;
+    line-height: 1.25;
+  }
 
   .categories-grid {
     display: flex;
@@ -1032,9 +1072,12 @@ ul, ol { list-style: none; }
     width: 100%;
     transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.42s ease;
   }
-  .cat-card.cat-hidden { opacity: 0; pointer-events: none; transform: translateX(100%); }
-  .cat-card.cat-prev   { opacity: 0; pointer-events: none; transform: translateX(-100%); }
-  .cat-card.cat-active { opacity: 1; pointer-events: all; transform: translateX(0); }
+  /* Use higher specificity (two classes) to beat [data-reveal] { opacity:1!important } */
+  .cat-card.cat-hidden { opacity: 0 !important; pointer-events: none; transform: translateX(100%) !important; }
+  .cat-card.cat-prev   { opacity: 0 !important; pointer-events: none; transform: translateX(-100%) !important; }
+  .cat-card.cat-active { opacity: 1 !important; pointer-events: all;  transform: translateX(0) !important; }
+  /* Restore transition (overrides transition:none from [data-reveal]) */
+  .categories-grid .cat-card { transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.42s ease !important; }
 
   .cat-card-content { padding: 16px; }
   .cat-title { font-size: 26px; }
@@ -1065,27 +1108,53 @@ ul, ol { list-style: none; }
 
   /* ── Store mobile ────────────────────────────────────────────── */
   .slide--store { min-height: 100dvh; }
-  .store-content h2 { font-size: 34px; }
-  .store-content p  { font-size: 13px; }
+  .store-content {
+    padding: 40px 32px;
+    margin: 0 20px;
+    width: auto;
+    max-width: 100%;
+  }
+  .store-content h2 { font-size: 36px; margin-bottom: 12px; }
+  .store-content p  { font-size: 13px; margin-bottom: 24px; }
 
   /* ── Chocolatiers mobile ─────────────────────────────────────── */
   .slide--chocolatiers {
-    padding: 32px 20px 20px;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     overflow: hidden;
     text-align: center;
   }
-  .chocolatiers-inner { padding: 0; }
-  .chocolatiers-inner .section-title { font-size: 20px; }
-  .chocolatiers-inner > p { font-size: 13px; }
-  .chocolatiers-grid { margin-top: 20px; gap: 10px; }
-  .choc-img { aspect-ratio: 4/3; }
+  .chocolatiers-inner {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+  }
+  /* Text area at top — offset by search bar height */
+  .chocolatiers-inner .section-eyebrow { padding: 58px 24px 0; font-size: 10px; }
+  .chocolatiers-inner .section-title   { font-size: 22px; padding: 10px 24px 0; margin-bottom: 0; }
+  .chocolatiers-inner > p              { font-size: 13px; padding: 10px 24px 0; margin: 0; }
+  .chocolatiers-inner > .btn           { margin: 16px auto 0 !important; }
+  /* Image area fills remaining space */
+  .chocolatiers-grid {
+    margin-top: 20px;
+    grid-template-columns: 1fr;
+    gap: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+  .choc-img {
+    aspect-ratio: unset;
+    height: 100%;
+  }
+  /* Hide second image on mobile — one full-bleed image is more impactful */
+  .chocolatiers-grid .choc-img:last-child { display: none; }
 
   /* ── Newsletter mobile ───────────────────────────────────────── */
   .slide--newsletter {
-    padding: 32px 20px;
+    padding: 80px 24px 48px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1093,10 +1162,18 @@ ul, ol { list-style: none; }
     text-align: center;
   }
   .newsletter-inner { max-width: 100%; }
+  .slide--newsletter .section-title { font-size: 28px; margin-bottom: 12px; }
   .newsletter-inner > p { font-size: 13px; margin-bottom: 24px; }
-  .newsletter-form { flex-direction: column; }
-  .newsletter-form input[type="email"] { border-right: 1px solid var(--border); border-bottom: none; }
-  .newsletter-form .btn { width: 100%; }
+  .newsletter-form { flex-direction: column; gap: 0; }
+  .newsletter-form input[type="email"] {
+    border-right: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 0;
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+  .newsletter-form .btn { width: 100%; padding: 15px 24px; }
+  .newsletter-consent { text-align: left; margin-top: 16px; }
 
   /* ── Footer / Slide 7 mobile ─────────────────────────────────── */
   .slide--footer {
