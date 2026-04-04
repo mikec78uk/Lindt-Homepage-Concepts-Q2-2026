@@ -1067,11 +1067,12 @@ ul, ol { list-style: none; }
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    flex: 1;
+    height: 68dvh;
+    flex: none;
     gap: 12px;
     padding: 14px 48px 14px 0;
     margin-left: 20px;
-    margin-top: 0;
+    margin-top: 8px;
     grid-template-columns: unset;
     align-items: stretch;
   }
