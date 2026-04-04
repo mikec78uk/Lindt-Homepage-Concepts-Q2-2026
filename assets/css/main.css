@@ -1132,7 +1132,7 @@ ul, ol { list-style: none; }
     flex: 1;
     overflow: hidden;
   }
-  .chocolatiers-inner .section-eyebrow { padding: 0 24px; font-size: 10px; }
+  .chocolatiers-inner .section-eyebrow { padding: 0 24px; font-size: 10px; margin-bottom: 0; }
   .chocolatiers-inner .section-title   { font-size: 22px; padding: 10px 24px 0; margin-bottom: 0; }
   .chocolatiers-inner > p              { font-size: 13px; padding: 10px 24px 0; margin: 0; }
   .chocolatiers-inner > .btn           { margin: 16px auto 0 !important; }
