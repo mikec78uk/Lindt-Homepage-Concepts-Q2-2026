@@ -941,8 +941,9 @@ ul, ol { list-style: none; }
     grid-column: 3;
     justify-self: end;
   }
-  .header-icons { gap: 10px; }
+  .header-icons { gap: 16px; }
   .header-icons button, .header-icons a { font-size: 16px; }
+  .header-main .header-icons.mobile-only svg { width: 21px; height: 21px; }
 
   /* Mobile USP — rotating messages, same animation as desktop */
   .header-usp.mobile-only {
@@ -1178,14 +1179,14 @@ ul, ol { list-style: none; }
 
   /* ── Footer / Slide 7 mobile ─────────────────────────────────── */
   .slide--footer {
-    padding: 150px 20px 24px;
+    padding: 160px 20px 40px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     transition: padding-top 0.35s ease;
   }
-  body.header-hidden .slide--footer { padding-top: 56px; }
+  body.header-hidden .slide--footer { padding-top: 80px; }
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 0;
