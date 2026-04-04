@@ -932,28 +932,25 @@ ul, ol { list-style: none; }
     padding: 10px 16px;
     gap: 0;
   }
-  .logo-text  { font-size: 30px; }
-  .logo-sub   { font-size: 5.5px; letter-spacing: 0.14em; }
 
-  /* Hamburger — grid column 1 */
-  .header-hamburger {
-    grid-column: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    color: var(--black);
-    padding: 4px 0;
-    transition: color 0.2s;
-  }
-  .header-hamburger:hover { color: var(--gold); }
+  /* Logo: left column */
+  .header-main .logo-link { grid-column: 1; }
 
-  /* Mobile icons — grid column 3, right-aligned */
+  /* Icons: right column, 5 icons */
   .header-main .header-icons.mobile-only {
     grid-column: 3;
     justify-self: end;
   }
-  .header-icons { gap: 14px; }
+  .header-icons { gap: 10px; }
   .header-icons button, .header-icons a { font-size: 16px; }
+
+  /* Mobile USP — rotating messages, same animation as desktop */
+  .header-usp.mobile-only {
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
 
   /* Mobile search bar — fixed outside header, always visible */
   .mobile-search-bar {
@@ -997,7 +994,7 @@ ul, ol { list-style: none; }
 
   /* ── Products mobile ─────────────────────────────────────────── */
   .slide--products {
-    padding: 0 20px 24px;
+    padding: 60px 20px 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1040,9 +1037,9 @@ ul, ol { list-style: none; }
   .product-name { font-size: 11px; }
   .products-cta { text-align: center; }
 
-  /* ── Categories mobile ───────────────────────────────────────── */
+  /* ── Categories mobile — horizontal peek scroll ──────────────── */
   .slide--categories {
-    padding: 58px 20px 16px;
+    padding: 150px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1050,61 +1047,54 @@ ul, ol { list-style: none; }
     background: var(--gray-100);
   }
   .slide--categories .section-title {
+    padding: 0 20px;
     font-size: 22px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
     text-align: center;
     line-height: 1.25;
   }
 
+  /* Horizontal scroll container — next card peeks at right */
   .categories-grid {
     display: flex;
-    position: relative;
-    overflow: hidden;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     flex: 1;
+    gap: 12px;
+    padding: 14px 48px 14px 20px;
     margin-top: 0;
     grid-template-columns: unset;
-    gap: 0;
+    align-items: stretch;
   }
+  .categories-grid::-webkit-scrollbar { display: none; }
+
+  /* Cards: fixed width, fill grid height */
   .cat-card {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    inset: unset;
     aspect-ratio: unset;
-    width: 100%;
-    transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.42s ease;
+    width: 76vw;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: none;
   }
-  /* Use higher specificity (two classes) to beat [data-reveal] { opacity:1!important } */
-  .cat-card.cat-hidden { opacity: 0 !important; pointer-events: none; transform: translateX(100%) !important; }
-  .cat-card.cat-prev   { opacity: 0 !important; pointer-events: none; transform: translateX(-100%) !important; }
-  .cat-card.cat-active { opacity: 1 !important; pointer-events: all;  transform: translateX(0) !important; }
-  /* Restore transition (overrides transition:none from [data-reveal]) */
-  .categories-grid .cat-card { transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.42s ease !important; }
+  /* All JS carousel states are visible in the scroll layout */
+  .cat-card.cat-hidden,
+  .cat-card.cat-prev  { opacity: 1 !important; transform: none !important; pointer-events: all; }
+  .cat-card.cat-active { opacity: 1 !important; transform: none !important; }
+  .categories-grid .cat-card { transition: none !important; }
 
   .cat-card-content { padding: 16px; }
   .cat-title { font-size: 26px; }
 
-  /* Category nav buttons */
-  .cat-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0 4px;
-    flex-shrink: 0;
-  }
-  .cat-nav-btn {
-    width: 36px; height: 36px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    background: var(--white);
-    color: var(--black);
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-  .cat-nav-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
-  .cat-nav-indicator { font-size: 11px; color: var(--gray-600); letter-spacing: 0.05em; }
+  /* Hide the prev/next nav — natural scroll replaces it */
+  .cat-nav { display: none !important; }
 
   /* ── Store mobile ────────────────────────────────────────────── */
   .slide--store { min-height: 100dvh; }
@@ -1132,8 +1122,8 @@ ul, ol { list-style: none; }
     flex-direction: column;
     height: 100dvh;
   }
-  /* Text area at top — offset by search bar height */
-  .chocolatiers-inner .section-eyebrow { padding: 58px 24px 0; font-size: 10px; }
+  /* Text area at top — clear full header + search bar */
+  .chocolatiers-inner .section-eyebrow { padding: 150px 24px 0; font-size: 10px; }
   .chocolatiers-inner .section-title   { font-size: 22px; padding: 10px 24px 0; margin-bottom: 0; }
   .chocolatiers-inner > p              { font-size: 13px; padding: 10px 24px 0; margin: 0; }
   .chocolatiers-inner > .btn           { margin: 16px auto 0 !important; }
@@ -1154,7 +1144,7 @@ ul, ol { list-style: none; }
 
   /* ── Newsletter mobile ───────────────────────────────────────── */
   .slide--newsletter {
-    padding: 80px 24px 48px;
+    padding: 150px 24px 48px;
     display: flex;
     flex-direction: column;
     justify-content: center;

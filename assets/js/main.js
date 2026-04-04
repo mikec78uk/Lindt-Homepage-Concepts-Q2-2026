@@ -55,6 +55,20 @@
   });
 
   /* ──────────────────────────────────────────────────────────
+     USP BAR ROTATION — runs on both mobile and desktop bars
+     ────────────────────────────────────────────────────────── */
+  document.querySelectorAll('.header-usp').forEach(function (bar) {
+    const msgs = bar.querySelectorAll('.usp-msg');
+    if (msgs.length < 2) return;
+    let current = 0;
+    setInterval(function () {
+      msgs[current].classList.remove('usp-active');
+      current = (current + 1) % msgs.length;
+      msgs[current].classList.add('usp-active');
+    }, 4500);
+  });
+
+  /* ──────────────────────────────────────────────────────────
      NEWSLETTER FORM
      ────────────────────────────────────────────────────────── */
   const nlForm = document.getElementById('newsletter-form');
@@ -248,18 +262,6 @@
     document.querySelectorAll('[data-reveal]').forEach(el => {
       revealObserver.observe(el);
     });
-
-    /* ── USP bar rotation ───────────────────────────────────── */
-    (function () {
-      const msgs = document.querySelectorAll('#usp-bar .usp-msg');
-      if (msgs.length < 2) return;
-      let current = 0;
-      setInterval(function () {
-        msgs[current].classList.remove('usp-active');
-        current = (current + 1) % msgs.length;
-        msgs[current].classList.add('usp-active');
-      }, 4500);
-    })();
 
     /* ── Header shadow on scroll ─────────────────────────────── */
     const header = document.getElementById('site-header');
