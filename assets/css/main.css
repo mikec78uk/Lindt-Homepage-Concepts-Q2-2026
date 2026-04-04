@@ -1001,7 +1001,7 @@ ul, ol { list-style: none; }
     overflow: hidden;
     transition: padding-top 0.35s ease;
   }
-  body.header-hidden .slide--products { padding-top: 0; }
+  body.header-hidden .slide--products { padding-top: 56px; }
   .slide--products .section-title {
     font-size: 26px;
     margin-bottom: 14px;
@@ -1049,7 +1049,7 @@ ul, ol { list-style: none; }
     background: var(--gray-100);
     transition: padding-top 0.35s ease;
   }
-  body.header-hidden .slide--categories { padding-top: 20px; }
+  body.header-hidden .slide--categories { padding-top: 56px; }
   .slide--categories .section-title {
     padding: 0 20px;
     font-size: 22px;
@@ -1115,26 +1115,24 @@ ul, ol { list-style: none; }
 
   /* ── Chocolatiers mobile ─────────────────────────────────────── */
   .slide--chocolatiers {
-    padding: 0;
+    padding: 150px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     overflow: hidden;
     text-align: center;
+    transition: padding-top 0.35s ease;
   }
+  body.header-hidden .slide--chocolatiers { padding-top: 56px; }
+
   .chocolatiers-inner {
     padding: 0;
     display: flex;
     flex-direction: column;
-    height: 100dvh;
+    flex: 1;
+    overflow: hidden;
   }
-  /* Text area at top — transitions with header */
-  .chocolatiers-inner .section-eyebrow {
-    padding: 150px 24px 0;
-    font-size: 10px;
-    transition: padding-top 0.35s ease;
-  }
-  body.header-hidden .chocolatiers-inner .section-eyebrow { padding-top: 0; }
+  .chocolatiers-inner .section-eyebrow { padding: 0 24px; font-size: 10px; }
   .chocolatiers-inner .section-title   { font-size: 22px; padding: 10px 24px 0; margin-bottom: 0; }
   .chocolatiers-inner > p              { font-size: 13px; padding: 10px 24px 0; margin: 0; }
   .chocolatiers-inner > .btn           { margin: 16px auto 0 !important; }
@@ -1163,7 +1161,7 @@ ul, ol { list-style: none; }
     text-align: center;
     transition: padding-top 0.35s ease;
   }
-  body.header-hidden .slide--newsletter { padding-top: 0; }
+  body.header-hidden .slide--newsletter { padding-top: 56px; }
   .newsletter-inner { max-width: 100%; }
   .slide--newsletter .section-title { font-size: 28px; margin-bottom: 12px; }
   .newsletter-inner > p { font-size: 13px; margin-bottom: 24px; }
@@ -1180,14 +1178,14 @@ ul, ol { list-style: none; }
 
   /* ── Footer / Slide 7 mobile ─────────────────────────────────── */
   .slide--footer {
-    padding: 150px 20px 0;
+    padding: 150px 20px 24px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     transition: padding-top 0.35s ease;
   }
-  body.header-hidden .slide--footer { padding-top: 16px; }
+  body.header-hidden .slide--footer { padding-top: 56px; }
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 0;
