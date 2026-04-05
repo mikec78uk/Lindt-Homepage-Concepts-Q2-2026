@@ -1224,3 +1224,56 @@ ul, ol { list-style: none; }
   .footer-social-col ul li a { font-size: 11.5px; color: var(--gray-600); }
   .footer-bottom { flex-direction: column; text-align: center; padding-top: 16px; font-size: 10px; }
 }
+
+/* ============================================================
+   CONCEPT 2 — mobile overrides: normal scroll, no snap
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Restore normal page scroll */
+  html.concept-2,
+  html.concept-2 body { overflow: auto; height: auto; }
+
+  .concept-2 .site-main {
+    position: static;
+    overflow-y: auto;
+    scroll-snap-type: none;
+    height: auto;
+  }
+
+  /* Slides: auto height, no snap */
+  .concept-2 .slide {
+    scroll-snap-align: none;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  /* Hero: fixed height like concept 1 but no snap */
+  .concept-2 .slide--hero { height: 100dvh; overflow: hidden; }
+
+  /* Remove snap-scroll top padding — use normal flow padding */
+  .concept-2 .slide--products,
+  .concept-2 .slide--categories,
+  .concept-2 .slide--chocolatiers,
+  .concept-2 .slide--newsletter {
+    padding-top: 24px;
+    transition: none;
+  }
+  .concept-2 .slide--footer { padding-top: 32px; transition: none; }
+
+  /* Chocolatiers image: revert to fixed height without flex fill */
+  .concept-2 .chocolatiers-grid {
+    flex: none;
+    height: 50vw;
+  }
+
+  /* Categories grid: auto height */
+  .concept-2 .categories-grid { height: 70vw; }
+
+  /* Hide dot nav — not needed for normal scroll */
+  .concept-2 .dot-nav { display: none !important; }
+
+  /* Header: no hide/show on scroll — stays fixed normally */
+  .concept-2 .site-header { position: sticky; top: 0; }
+  .concept-2 .mobile-search-bar { position: sticky; top: 0; }
+}
