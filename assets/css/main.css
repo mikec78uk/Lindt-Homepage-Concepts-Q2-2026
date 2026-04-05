@@ -1155,7 +1155,7 @@ ul, ol { list-style: none; }
   .cat-nav { display: none !important; }
 
   /* ── Store mobile ────────────────────────────────────────────── */
-  .slide--store { min-height: 100dvh; }
+  .slide--store { min-height: 100dvh; padding: 200px 0; }
   .store-content {
     padding: 40px 32px;
     margin: 0 20px;
@@ -1444,6 +1444,7 @@ ul, ol { list-style: none; }
     overflow-y: auto;
     scroll-snap-type: none;
     height: auto;
+    padding-top: 140px; /* clears fixed header (USP ~30px + nav ~56px + search ~54px) */
   }
 
   /* Slides: auto height, no snap */
@@ -1457,18 +1458,24 @@ ul, ol { list-style: none; }
   /* Hero: auto height for concept-2 new hero */
   .concept-2 .slide--hero { height: auto !important; overflow: visible; padding-bottom: 0 !important; }
 
-  /* Promo banner — slim on mobile */
-  .c2-promo-banner { height: 52vw; min-height: 180px; }
-  .c2-promo-content { margin-left: 20px; padding: 22px 24px; max-width: 82%; gap: 8px; }
-  .c2-promo-title { font-size: 18px; }
+  /* Promo banner — full 300px visible below header (header clearance handled by .site-main padding-top) */
+  .c2-promo-banner { height: 300px; min-height: 0; padding-top: 10px; padding-bottom: 30px; background-position: right center; }
+  .c2-promo-content {
+    margin: 20px;
+    width: auto;
+    max-width: none;
+    padding: 20px 24px;
+    gap: 10px;
+  }
+  .c2-promo-title { font-size: 18px; white-space: normal; }
   .c2-promo-eyebrow { font-size: 10px; }
   .c2-promo-sub { font-size: 11px; }
 
-  /* Category nav — horizontal scroll on mobile */
+  /* Category nav — horizontal scroll on mobile, ~2.5 items visible */
   .c2-cat-nav {
     overflow-x: auto;
     flex-wrap: nowrap;
-    padding: 16px 16px;
+    padding: 20px 16px;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     gap: 0;
@@ -1476,18 +1483,17 @@ ul, ol { list-style: none; }
   .c2-cat-nav::-webkit-scrollbar { display: none; }
   .c2-cat-item {
     flex: 0 0 auto;
-    width: 22vw;
-    min-width: 72px;
-    max-width: 110px;
-    padding: 0 4px;
+    width: 38vw;
+    padding: 0 8px;
   }
-  .c2-cat-label { font-size: 8px; letter-spacing: 0.1em; }
+  .c2-cat-img-wrap { height: 160px; }
+  .c2-cat-label { font-size: 11px; letter-spacing: 0.1em; }
 
   /* Remove snap-scroll top padding — use normal flow padding */
   .concept-2 .slide--categories,
   .concept-2 .slide--chocolatiers,
   .concept-2 .slide--newsletter {
-    padding-top: 24px;
+    padding-top: 80px;
     transition: none;
   }
   .concept-2 .slide--products {
@@ -1497,11 +1503,15 @@ ul, ol { list-style: none; }
   }
   .concept-2 .slide--footer { padding-top: 32px; transition: none; }
 
-  /* Chocolatiers image: revert to fixed height without flex fill */
+  /* Chocolatiers image: stacked single column on concept-2 mobile, both images visible */
   .concept-2 .chocolatiers-grid {
     flex: none;
-    height: 50vw;
+    grid-template-columns: 1fr;
+    gap: 0;
+    height: auto;
   }
+  .concept-2 .chocolatiers-grid .choc-img { display: block; aspect-ratio: 4/3; height: auto; }
+  .concept-2 .chocolatiers-grid .choc-img:last-child { display: block; }
 
   /* Categories grid: hidden in concept-2 (replaced by roundel grid) */
   .concept-2 .categories-grid { display: none !important; }
@@ -1534,7 +1544,7 @@ ul, ol { list-style: none; }
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px 16px;
-    padding: 20px 24px 32px;
+    padding: 20px 24px 80px;
     justify-items: center;
   }
   .concept-2 .roundel-item { max-width: 100%; width: 100%; }
