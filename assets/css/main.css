@@ -894,6 +894,9 @@ ul, ol { list-style: none; }
   .logo-img--desktop { display: none !important; }
   .logo-img--mobile  { display: block !important; }
 
+  /* Prevent iOS auto-zoom on input focus (requires font-size >= 16px) */
+  input, textarea, select { font-size: 16px !important; }
+
   /* Lock body; main becomes the scroll container */
   html, body { overflow: hidden; height: 100dvh; }
 
