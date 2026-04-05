@@ -1380,9 +1380,7 @@ ul, ol { list-style: none; }
 /* Center title for concept-2 categories section */
 .concept-2 .slide--categories .section-title { text-align: center !important; }
 
-/* Center products title and filter tabs on concept-2 (desktop) */
-.concept-2 .slide--products .section-title { text-align: center !important; }
-.concept-2 .filter-tabs { justify-content: center !important; }
+/* Products title and tabs left-aligned on concept-2 desktop (same as concept-1) */
 
 .roundel-grid {
   display: flex;
@@ -1528,11 +1526,7 @@ ul, ol { list-style: none; }
   /* Center category title on mobile for concept-2 */
   .concept-2 .slide--categories .section-title { text-align: center !important; padding: 0 20px; }
 
-  /* Center products title on concept-2 (mobile) */
-  .concept-2 .slide--products .section-title { text-align: center !important; }
-
-  /* Left-align filter tabs on concept-2 mobile (override the global center rule) */
-  .concept-2 .filter-tabs { justify-content: flex-start !important; }
+  /* Products title + tabs inherit left-align from concept-1 styles */
 
   /* Products: animate the whole grid as one unit, not card-by-card */
   html.concept-2 .slide--products .product-card[data-reveal] {
