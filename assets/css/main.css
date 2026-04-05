@@ -1229,6 +1229,58 @@ ul, ol { list-style: none; }
 }
 
 /* ============================================================
+   CONCEPT 2 — ROUNDEL CATEGORIES
+   ============================================================ */
+.roundel-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 40px 40px 60px;
+  flex-wrap: nowrap;
+}
+
+.roundel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  gap: 14px;
+  flex: 1;
+  max-width: 160px;
+}
+
+.roundel-img-wrap {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+.roundel-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.roundel-item:hover .roundel-img-wrap img { filter: grayscale(0%); }
+
+.roundel-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-align: center;
+}
+
+/* ============================================================
    CONCEPT 2 — mobile overrides: normal scroll, no snap
    ============================================================ */
 @media (max-width: 768px) {
@@ -1270,11 +1322,24 @@ ul, ol { list-style: none; }
     height: 50vw;
   }
 
-  /* Categories grid: auto height */
-  .concept-2 .categories-grid { height: 70vw; }
+  /* Categories grid: hidden in concept-2 (replaced by roundel grid) */
+  .concept-2 .categories-grid { display: none !important; }
+  .concept-2 .cat-nav { display: none !important; }
 
   /* Hide dot nav — not needed for normal scroll */
   .concept-2 .dot-nav { display: none !important; }
+
+  /* Roundel grid — 2 columns on mobile */
+  .concept-2 .roundel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+    padding: 20px 24px 32px;
+    justify-items: center;
+  }
+  .concept-2 .roundel-item { max-width: 100%; width: 100%; }
+  .concept-2 .roundel-img-wrap { width: min(40vw, 160px); }
+  .concept-2 .slide--categories { overflow: visible; }
 
   /* Re-enable scroll reveal for concept-2 mobile */
   html.concept-2 [data-reveal] {
