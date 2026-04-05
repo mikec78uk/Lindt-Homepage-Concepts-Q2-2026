@@ -1314,11 +1314,15 @@ ul, ol { list-style: none; }
   .concept-2 .slide--hero { height: 100dvh; overflow: hidden; }
 
   /* Remove snap-scroll top padding — use normal flow padding */
-  .concept-2 .slide--products,
   .concept-2 .slide--categories,
   .concept-2 .slide--chocolatiers,
   .concept-2 .slide--newsletter {
     padding-top: 24px;
+    transition: none;
+  }
+  .concept-2 .slide--products {
+    padding-top: 60px;
+    padding-bottom: 60px;
     transition: none;
   }
   .concept-2 .slide--footer { padding-top: 32px; transition: none; }
@@ -1339,9 +1343,21 @@ ul, ol { list-style: none; }
   /* Center category title on mobile for concept-2 */
   .concept-2 .slide--categories .section-title { text-align: center !important; padding: 0 20px; }
 
-  /* Center products title and filter tabs on concept-2 (mobile) */
+  /* Center products title on concept-2 (mobile) */
   .concept-2 .slide--products .section-title { text-align: center !important; }
-  .concept-2 .filter-tabs { justify-content: center !important; }
+
+  /* Left-align filter tabs on concept-2 mobile (override the global center rule) */
+  .concept-2 .filter-tabs { justify-content: flex-start !important; }
+
+  /* Products: animate the whole grid as one unit, not card-by-card */
+  html.concept-2 .slide--products .product-card[data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Products grid: prevent vertical wobble when swiping carousel on concept-2 */
+  .concept-2 .products-grid { touch-action: pan-x; overflow-y: hidden; }
 
   /* Roundel grid — 2 columns on mobile */
   .concept-2 .roundel-grid {
