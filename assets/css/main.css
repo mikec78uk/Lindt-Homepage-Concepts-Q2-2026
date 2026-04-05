@@ -1231,6 +1231,9 @@ ul, ol { list-style: none; }
 /* ============================================================
    CONCEPT 2 — ROUNDEL CATEGORIES
    ============================================================ */
+/* Center title for concept-2 categories section */
+.concept-2 .slide--categories .section-title { text-align: center !important; }
+
 .roundel-grid {
   display: flex;
   flex-direction: row;
@@ -1248,7 +1251,7 @@ ul, ol { list-style: none; }
   text-decoration: none;
   gap: 14px;
   flex: 1;
-  max-width: 160px;
+  max-width: 200px;
 }
 
 .roundel-img-wrap {
@@ -1328,6 +1331,9 @@ ul, ol { list-style: none; }
 
   /* Hide dot nav — not needed for normal scroll */
   .concept-2 .dot-nav { display: none !important; }
+
+  /* Center category title on mobile for concept-2 */
+  .concept-2 .slide--categories .section-title { text-align: center !important; padding: 0 20px; }
 
   /* Roundel grid — 2 columns on mobile */
   .concept-2 .roundel-grid {

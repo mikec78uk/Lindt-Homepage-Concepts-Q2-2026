@@ -122,6 +122,8 @@
       const revealObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
+            const delay = entry.target.dataset.delay;
+            if (delay) entry.target.style.transitionDelay = delay + 'ms';
             entry.target.classList.add('revealed');
             revealObserver.unobserve(entry.target);
           }
@@ -271,6 +273,8 @@
     const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          const delay = entry.target.dataset.delay;
+          if (delay) entry.target.style.transitionDelay = delay + 'ms';
           entry.target.classList.add('revealed');
           revealObserver.unobserve(entry.target);
         }
