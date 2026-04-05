@@ -1437,13 +1437,14 @@ ul, ol { list-style: none; }
    CONCEPT 2 — mobile overrides: normal scroll, no snap
    ============================================================ */
 @media (max-width: 768px) {
-  /* Restore normal page scroll */
-  html.concept-2,
-  html.concept-2 body { overflow: auto; height: auto; overscroll-behavior: none; }
+  /* Restore normal page scroll — single scroll container on the window, no bounce */
+  html.concept-2 { overflow: auto; height: auto; overscroll-behavior-y: none; }
+  html.concept-2 body { overflow: visible; height: auto; overscroll-behavior-y: none; }
 
   .concept-2 .site-main {
     position: static;
-    overflow-y: auto;
+    overflow: visible; /* let window scroll, not this container */
+    -webkit-overflow-scrolling: auto;
     scroll-snap-type: none;
     height: auto;
     padding-top: 140px; /* clears fixed header (USP ~30px + nav ~56px + search ~54px) */
