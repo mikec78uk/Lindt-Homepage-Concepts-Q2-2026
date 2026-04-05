@@ -185,10 +185,18 @@
       background: var(--white);
     }
 
+    /* Equal height cards */
+    .concepts-grid { align-items: stretch; }
+    .concept-card { height: 100%; }
+
     /* Responsive */
     @media (max-width: 640px) {
-      .site-header { padding: 16px 20px; }
-      .header-label { display: none; }
+      .site-header { padding: 14px 20px; justify-content: space-between; }
+      .site-header > div { display: none; } /* hide spacer */
+      .logo-link { flex-direction: row; align-items: center; gap: 8px; }
+      .logo-img--desktop { display: none !important; }
+      .logo-img--mobile { display: block !important; }
+      .header-label { display: block; }
       .concepts-grid { grid-template-columns: 1fr; }
       main { padding: 40px 20px; }
       .concept-card { padding: 24px; }
@@ -200,7 +208,8 @@
   <header class="site-header">
     <div></div>
     <a href="index.html" class="logo-link" aria-label="Lindt">
-      <img src="assets/images/logo-Desktop.webp" alt="Lindt Maître Chocolatier" style="height:52px; width:auto;">
+      <img src="assets/images/logo-Desktop.webp" alt="Lindt Maître Chocolatier" class="logo-img--desktop" style="height:52px; width:auto;">
+      <img src="assets/images/logo-Mobile.webp" alt="Lindt" class="logo-img--mobile" style="height:36px; width:auto; display:none;">
     </a>
     <span class="header-label">Concept Review</span>
   </header>
@@ -232,7 +241,9 @@
         <div class="notes-section">
           <h3>Notes</h3>
           <ul>
-            <li>Point to be added later</li>
+            <li>Hero area focused on range navigation, inspired by the supplied Maison Francis Kurkdjian Paris reference.</li>
+            <li>Additional category navigation module that avoids placing text over imagery. Both category navigation options are shown as alternative approaches and are not intended to appear together in the final design.</li>
+            <li>Mobile uses a more conventional scroll behaviour, rather than the slide-based interaction used in Concept 1.</li>
           </ul>
         </div>
       </div>
