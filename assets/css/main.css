@@ -1276,7 +1276,4 @@ ul, ol { list-style: none; }
   /* Hide dot nav — not needed for normal scroll */
   .concept-2 .dot-nav { display: none !important; }
 
-  /* Header: no hide/show on scroll — stays fixed normally */
-  .concept-2 .site-header { position: sticky; top: 0; }
-  .concept-2 .mobile-search-bar { position: sticky; top: 0; }
 }

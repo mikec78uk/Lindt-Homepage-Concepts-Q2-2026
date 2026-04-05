@@ -130,8 +130,12 @@
     /* ── 1. Header hide / show on scroll ─────────────────────── */
     let lastScroll = 0;
 
-    main.addEventListener('scroll', () => {
-      const current = main.scrollTop;
+    const isConcept2 = document.documentElement.classList.contains('concept-2');
+    const scrollTarget = isConcept2 ? window : main;
+    const getScroll = () => isConcept2 ? window.scrollY : main.scrollTop;
+
+    scrollTarget.addEventListener('scroll', () => {
+      const current = getScroll();
 
       if (current < 60) {
         // Near top — always show header
