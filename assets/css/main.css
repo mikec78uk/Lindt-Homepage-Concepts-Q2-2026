@@ -1276,4 +1276,16 @@ ul, ol { list-style: none; }
   /* Hide dot nav — not needed for normal scroll */
   .concept-2 .dot-nav { display: none !important; }
 
+  /* Re-enable scroll reveal for concept-2 mobile */
+  html.concept-2 [data-reveal] {
+    opacity: 0 !important;
+    transform: translateY(60px) !important;
+    transition: opacity 0.9s var(--ease-reveal), transform 0.9s var(--ease-reveal) !important;
+  }
+  html.concept-2 [data-reveal="fade"] { transform: none !important; }
+  html.concept-2 [data-reveal="swift"] { transform: translateY(100px) !important; }
+  html.concept-2 [data-reveal].revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
 }

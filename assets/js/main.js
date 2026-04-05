@@ -115,6 +115,21 @@
 
     if (!main) return;
 
+    const isConcept2 = document.documentElement.classList.contains('concept-2');
+
+    /* ── Scroll reveal for concept-2 mobile ─────────────────── */
+    if (isConcept2) {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+    }
+
     /* ── Position mobile search bar below header ─────────────── */
     function positionSearch(headerVisible) {
       if (!mobileSearch) return;
@@ -130,7 +145,6 @@
     /* ── 1. Header hide / show on scroll ─────────────────────── */
     let lastScroll = 0;
 
-    const isConcept2 = document.documentElement.classList.contains('concept-2');
     const scrollTarget = isConcept2 ? window : main;
     const getScroll = () => isConcept2 ? window.scrollY : main.scrollTop;
 
