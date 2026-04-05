@@ -192,7 +192,7 @@
     /* Responsive */
     @media (max-width: 640px) {
       .site-header { padding: 14px 20px; justify-content: space-between; }
-      .site-header > div { display: none; } /* hide spacer */
+      .header-spacer { display: none !important; } /* hide centering spacer on mobile */
       .logo-link { flex-direction: row; align-items: center; gap: 8px; }
       .logo-img--desktop { display: none !important; }
       .logo-img--mobile { display: block !important; }
@@ -206,7 +206,7 @@
 <body>
 
   <header class="site-header">
-    <div></div>
+    <span class="header-label header-spacer" style="visibility:hidden;" aria-hidden="true">Concept Review</span>
     <a href="index.html" class="logo-link" aria-label="Lindt">
       <img src="assets/images/logo-Desktop.webp" alt="Lindt Maître Chocolatier" class="logo-img--desktop" style="height:52px; width:auto;">
       <img src="assets/images/logo-mobile.webp" alt="Lindt" class="logo-img--mobile" style="height:36px; width:auto; display:none;">
@@ -244,6 +244,7 @@
             <li>Hero area focused on range navigation, inspired by the supplied Maison Francis Kurkdjian Paris reference.</li>
             <li>Additional category navigation module that avoids placing text over imagery. Both category navigation options are shown as alternative approaches and are not intended to appear together in the final design.</li>
             <li>Mobile uses a more conventional scroll behaviour, rather than the slide-based interaction used in Concept 1.</li>
+            <li>Expanded product carousel with 5 visible products (vs. 4 in Concept 1).</li>
           </ul>
         </div>
       </div>

@@ -37,7 +37,7 @@ input, select, textarea { font-family: var(--font-sans); }
 ul, ol { list-style: none; }
 
 /* ── Utility ────────────────────────────────────────────────── */
-.desktop-only { display: block; }
+.desktop-only { display: flex; }
 .mobile-only  { display: none !important; }
 
 /* ============================================================
@@ -360,6 +360,7 @@ ul, ol { list-style: none; }
   margin-bottom: 28px;
   flex-wrap: wrap;
 }
+.products-tabs-row .filter-tabs { margin-bottom: 0; }
 .tab {
   padding: 8px 20px;
   font-size: 13px;
@@ -491,10 +492,49 @@ ul, ol { list-style: none; }
 }
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-bottom: 32px;
 }
+.concept-2 .products-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Products header row (title + tabs + arrows) */
+.products-header { margin-bottom: 24px; }
+.products-tabs-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+/* Carousel arrows */
+.carousel-arrows {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.carousel-arrows--below {
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+.carousel-arrow {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--black);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  transition: border-color 0.2s, color 0.2s;
+}
+.carousel-arrow:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); }
+.carousel-arrow:disabled { opacity: 0.3; cursor: default; }
 .product-card {
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -1229,6 +1269,110 @@ ul, ol { list-style: none; }
 }
 
 /* ============================================================
+   CONCEPT 2 — NEW HERO (promo banner + category nav)
+   ============================================================ */
+
+/* Hero slide: auto height, no snap */
+.concept-2 .slide--hero {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible;
+  display: block;
+  padding-bottom: 0 !important;
+}
+
+/* Promo banner */
+.c2-promo-banner {
+  position: relative;
+  height: 380px;
+  background: url('../images/hero-bg.jpg') center / cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+.c2-promo-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.52);
+  padding: 40px 44px;
+  margin-left: 60px;
+  width: 55%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.c2-promo-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.c2-promo-title {
+  font-family: var(--font-sans);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.2;
+  margin: 0;
+  white-space: nowrap;
+}
+.c2-promo-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
+}
+
+/* Category navigation row */
+.c2-cat-nav {
+  display: flex;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 40px;
+  gap: 20px;
+}
+.c2-cat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--black);
+  padding: 0;
+  transition: opacity 0.2s;
+}
+.c2-cat-item:hover { opacity: 0.75; }
+.c2-cat-img-wrap {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.c2-cat-img-wrap img {
+  width: 80%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: grayscale(100%);
+}
+.c2-cat-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--black);
+}
+
+/* ============================================================
    CONCEPT 2 — ROUNDEL CATEGORIES
    ============================================================ */
 /* Center title for concept-2 categories section */
@@ -1310,8 +1454,34 @@ ul, ol { list-style: none; }
     overflow: visible;
   }
 
-  /* Hero: fixed height like concept 1 but no snap */
-  .concept-2 .slide--hero { height: 100dvh; overflow: hidden; }
+  /* Hero: auto height for concept-2 new hero */
+  .concept-2 .slide--hero { height: auto !important; overflow: visible; padding-bottom: 0 !important; }
+
+  /* Promo banner — slim on mobile */
+  .c2-promo-banner { height: 52vw; min-height: 180px; }
+  .c2-promo-content { margin-left: 20px; padding: 22px 24px; max-width: 82%; gap: 8px; }
+  .c2-promo-title { font-size: 18px; }
+  .c2-promo-eyebrow { font-size: 10px; }
+  .c2-promo-sub { font-size: 11px; }
+
+  /* Category nav — horizontal scroll on mobile */
+  .c2-cat-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding: 16px 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+  }
+  .c2-cat-nav::-webkit-scrollbar { display: none; }
+  .c2-cat-item {
+    flex: 0 0 auto;
+    width: 22vw;
+    min-width: 72px;
+    max-width: 110px;
+    padding: 0 4px;
+  }
+  .c2-cat-label { font-size: 8px; letter-spacing: 0.1em; }
 
   /* Remove snap-scroll top padding — use normal flow padding */
   .concept-2 .slide--categories,
@@ -1321,8 +1491,8 @@ ul, ol { list-style: none; }
     transition: none;
   }
   .concept-2 .slide--products {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 32px;
+    padding-bottom: 40px;
     transition: none;
   }
   .concept-2 .slide--footer { padding-top: 32px; transition: none; }

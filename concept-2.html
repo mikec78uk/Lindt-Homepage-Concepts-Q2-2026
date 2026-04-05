@@ -142,36 +142,55 @@
   <main class="site-main" id="site-main">
 
     <!-- ─────────────────────────────────────────────────────
-         SLIDE 01 · HERO
+         SLIDE 01 · HERO (Concept 2 — promo banner + category nav)
          ───────────────────────────────────────────────────── -->
-    <section class="slide slide--hero" id="slide-1" data-slide-index="0" data-theme="dark">
+    <section class="slide slide--hero" id="slide-1" data-slide-index="0" data-theme="light">
 
-      <video class="hero-video" autoplay muted loop playsinline>
-        <source src="assets/video/hero.mp4" type="video/mp4">
-      </video>
-
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <div class="hero-ctas">
-          <a href="#" class="btn btn--gold">Shop Easter</a>
-          <a href="#" class="btn btn--outline">Gold Bunny</a>
+      <!-- Promo banner -->
+      <div class="c2-promo-banner">
+        <div class="c2-promo-content">
+          <p class="c2-promo-eyebrow">Up to 50% off</p>
+          <h1 class="c2-promo-title">Easter Sale Now On</h1>
+          <p class="c2-promo-sub">Easter Sale Exclusively Online Until 05/04</p>
+          <a href="#" class="btn btn--gold">Shop Easter Sale</a>
         </div>
       </div>
 
-      <!-- Scroll indicator -->
-      <div class="hero-scroll" aria-hidden="true">
-        <div class="hero-scroll-inner">
-          <span class="hero-scroll-label">Scroll</span>
-          <div class="hero-scroll-line"></div>
-          <img src="assets/images/Scroll.svg" class="hero-scroll-icon" alt="">
-        </div>
+      <!-- Category navigation -->
+      <div class="c2-cat-nav">
+        <a href="#" class="c2-cat-item">
+          <div class="c2-cat-img-wrap"><img src="assets/images/c2-newin.png" alt="New In"></div>
+          <span class="c2-cat-label">New In</span>
+        </a>
+        <a href="#" class="c2-cat-item">
+          <div class="c2-cat-img-wrap"><img src="assets/images/c2-bestsellers.png" alt="Bestsellers"></div>
+          <span class="c2-cat-label">Bestsellers</span>
+        </a>
+        <a href="#" class="c2-cat-item">
+          <div class="c2-cat-img-wrap"><img src="assets/images/c2-onlineexclusives.png" alt="Online Exclusives"></div>
+          <span class="c2-cat-label">Online Exclusives</span>
+        </a>
+        <a href="#" class="c2-cat-item">
+          <div class="c2-cat-img-wrap"><img src="assets/images/c2-personalisedgifts.png" alt="Personalised Gifts"></div>
+          <span class="c2-cat-label">Personalised Gifts</span>
+        </a>
+        <a href="#" class="c2-cat-item">
+          <div class="c2-cat-img-wrap"><img src="assets/images/c2-dubai.png" alt="Dubai"></div>
+          <span class="c2-cat-label">Dubai</span>
+        </a>
+        <a href="#" class="c2-cat-item">
+          <div class="c2-cat-img-wrap"><img src="assets/images/c2-pickandmix.png" alt="Pick and Mix"></div>
+          <span class="c2-cat-label">Pick and Mix</span>
+        </a>
+        <a href="#" class="c2-cat-item">
+          <div class="c2-cat-img-wrap"><img src="assets/images/c2-lindor.png" alt="Lindor"></div>
+          <span class="c2-cat-label">Lindor</span>
+        </a>
+        <a href="#" class="c2-cat-item">
+          <div class="c2-cat-img-wrap"><img src="assets/images/c2-excellence.png" alt="Excellence"></div>
+          <span class="c2-cat-label">Excellence</span>
+        </a>
       </div>
-
-      <!-- Video pause/play control -->
-      <button class="video-ctrl-btn" id="video-ctrl" aria-label="Pause video">
-        ⏸
-      </button>
 
     </section>
 
@@ -260,6 +279,11 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="carousel-arrows carousel-arrows--below desktop-only" data-reveal>
+        <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous" disabled>&#8592;</button>
+        <button class="carousel-arrow carousel-arrow--next" aria-label="Next">&#8594;</button>
       </div>
 
       <div class="products-cta" data-reveal data-delay="300">
