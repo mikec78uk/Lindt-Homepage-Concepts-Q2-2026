@@ -558,11 +558,19 @@ ul, ol { list-style: none; }
   padding: 12px;
 }
 .product-info {
-  padding: 14px 16px 38px; /* extra bottom padding reserves space for was-price line */
+  padding: 14px 16px 16px;
   display: flex;
   flex-direction: column;
   flex: 1;
   gap: 6px;
+}
+/* Fixed-height bottom block — margin-top:auto pushes it down, min-height keeps
+   it constant so price/CTA always sit at the same Y across all cards */
+.product-bottom {
+  margin-top: auto;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
 }
 .product-title {
   font-size: 13px;
@@ -595,14 +603,12 @@ ul, ol { list-style: none; }
 
 .product-footer {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  margin-top: auto;
   padding-top: 10px;
 }
 .product-price { font-size: 14px; font-weight: 600; }
-/* Was-price sits below the footer row, within the reserved padding-bottom space */
-.product-price--was { font-size: 11px; font-weight: 400; color: #9b1b1b; }
+.product-price--was { font-size: 11px; font-weight: 400; color: #9b1b1b; margin-top: 4px; }
 .product-add {
   width: 34px; height: 34px;
   border-radius: 50%;
