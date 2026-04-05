@@ -558,7 +558,7 @@ ul, ol { list-style: none; }
   padding: 12px;
 }
 .product-info {
-  padding: 14px 16px 16px;
+  padding: 14px 16px 38px; /* extra bottom padding reserves space for was-price line */
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -600,9 +600,8 @@ ul, ol { list-style: none; }
   margin-top: auto;
   padding-top: 10px;
 }
-/* Price wrap: stacks current price + optional was/save line */
-.product-price-wrap { display: flex; flex-direction: column; gap: 3px; }
 .product-price { font-size: 14px; font-weight: 600; }
+/* Was-price sits below the footer row, within the reserved padding-bottom space */
 .product-price--was { font-size: 11px; font-weight: 400; color: #9b1b1b; }
 .product-add {
   width: 34px; height: 34px;
