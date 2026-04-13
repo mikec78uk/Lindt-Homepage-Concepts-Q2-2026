@@ -212,7 +212,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   padding: 40px 40px 32px;
   flex-wrap: nowrap;
 }
-.c3-roundel-grid .roundel-item { max-width: 160px; }
+.c3-roundel-grid .roundel-item { max-width: 160px; min-width: 0; }
 
 /* Grey circles — no images */
 .concept-3 .roundel-img-wrap { background: #D0CCC6; }
