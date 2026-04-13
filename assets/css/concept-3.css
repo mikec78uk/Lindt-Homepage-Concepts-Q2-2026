@@ -434,7 +434,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   }
 
   /* ── Hero carousel mobile ─────────────────────────────────── */
-  .c3-slides { height: 78vw; min-height: 300px; }
+  .c3-slides { height: 92vw; min-height: 360px; }
   .c3-slide  { padding: 28px 24px; }
   .c3-slide-title  { font-size: 34px; }
   .c3-slide-eyebrow { font-size: 10px; }
@@ -492,6 +492,8 @@ html.concept-3 body { overflow: visible; height: auto; }
     display: flex;
     flex-direction: row;
     overflow-x: auto;
+    overflow-y: hidden;
+    touch-action: pan-x;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     scroll-padding-left: 20px;
@@ -504,7 +506,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-ev-card {
     flex-shrink: 0;
     width: 72vw;
-    height: 76vw;
+    height: 90vw;
     aspect-ratio: unset;
     scroll-snap-align: start;
   }
