@@ -161,9 +161,11 @@ html.concept-3 body { overflow: visible; height: auto; }
 /* Product group crossfade — CSS grid stack avoids display:none jank */
 .c3-product-groups {
   display: grid;
+  overflow: hidden; /* prevents stacked groups from expanding grid width */
 }
 .c3-product-group {
   grid-area: 1 / 1;
+  min-width: 0; /* prevents grid item expanding beyond container */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.65s ease;
@@ -403,6 +405,13 @@ html.concept-3 body { overflow: visible; height: auto; }
    CONCEPT 3 — MOBILE OVERRIDES
    ============================================================ */
 @media (max-width: 768px) {
+
+  /* Roundels: reveal all at once (no per-item stagger) */
+  .c3-roundel-grid .roundel-item[data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 
   html.concept-3 { overflow: auto; height: auto; overscroll-behavior-y: none; }
   html.concept-3 body { overflow: visible; height: auto; overscroll-behavior-y: none; }
