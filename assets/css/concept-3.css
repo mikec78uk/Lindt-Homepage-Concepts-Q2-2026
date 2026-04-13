@@ -81,88 +81,75 @@ html.concept-3 body { overflow: visible; height: auto; }
 .c3-slide--3 .c3-slide-title { color: var(--white); opacity: 1; }
 .c3-slide--3 .c3-slide-sub   { color: var(--white); opacity: 0.8; }
 
-/* ── Carousel arrows (left/right, vertically centred) ──────── */
-.c3-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(0,0,0,0.12);
-  color: var(--black);
-  font-size: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.c3-arrow:hover { background: rgba(255,255,255,0.95); }
-.c3-prev { left: 20px; }
-.c3-next { right: 20px; }
-
-/* Dots + pause at bottom-centre */
-.c3-bottom-controls {
+/* ── Bottom-left: dots pill ────────────────────────────────── */
+.c3-dots-pill {
   position: absolute;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  left: 24px;
   z-index: 10;
-}
-.c3-dots-wrap {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
+  background: rgba(0,0,0,0.42);
+  border-radius: 20px;
+  padding: 8px 14px;
 }
 .c3-dot {
-  width: 8px; height: 8px;
+  width: 7px; height: 7px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.25);
+  background: rgba(255,255,255,0.5);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
+  flex-shrink: 0;
 }
 .c3-dot--active {
-  width: 24px;
+  width: 22px;
   border-radius: 4px;
-  background: rgba(0,0,0,0.65);
+  background: rgba(255,255,255,0.95);
 }
-.c3-pause {
-  width: 28px; height: 28px;
+
+/* ── Bottom-right: pause + arrows pill ─────────────────────── */
+.c3-controls-pill {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(0,0,0,0.42);
+  border-radius: 20px;
+  padding: 6px 8px;
+}
+.c3-pause,
+.c3-arrow {
+  width: 34px; height: 34px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(0,0,0,0.12);
-  color: var(--black);
+  background: transparent;
+  border: none;
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: background 0.2s;
   padding: 0;
+  flex-shrink: 0;
 }
-.c3-pause:hover { background: rgba(255,255,255,0.95); }
+.c3-pause { font-size: 13px; }
+.c3-arrow { font-size: 22px; }
+.c3-pause:hover,
+.c3-arrow:hover { background: rgba(255,255,255,0.15); }
 
-/* Dark-slide variant (slide 3): light controls */
-.c3-carousel.c3-dark-controls .c3-arrow {
-  background: rgba(0,0,0,0.28);
-  border-color: rgba(255,255,255,0.25);
-  color: var(--white);
-}
-.c3-carousel.c3-dark-controls .c3-arrow:hover { background: rgba(0,0,0,0.45); }
-.c3-carousel.c3-dark-controls .c3-dot         { background: rgba(255,255,255,0.38); }
-.c3-carousel.c3-dark-controls .c3-dot--active  { background: rgba(255,255,255,0.92); }
-.c3-carousel.c3-dark-controls .c3-pause {
-  background: rgba(0,0,0,0.28);
-  border-color: rgba(255,255,255,0.25);
-  color: var(--white);
-}
-.c3-carousel.c3-dark-controls .c3-pause:hover { background: rgba(0,0,0,0.45); }
+/* Dark-slide variant: pills already dark on light/mid slides; keep consistent */
+.c3-carousel.c3-dark-controls .c3-dots-pill   { background: rgba(0,0,0,0.42); }
+.c3-carousel.c3-dark-controls .c3-dot         { background: rgba(255,255,255,0.5); }
+.c3-carousel.c3-dark-controls .c3-dot--active { background: rgba(255,255,255,0.95); }
+.c3-carousel.c3-dark-controls .c3-controls-pill { background: rgba(0,0,0,0.42); }
+.c3-carousel.c3-dark-controls .c3-pause,
+.c3-carousel.c3-dark-controls .c3-arrow       { color: var(--white); }
 
 /* ── Products (linked to banner) ───────────────────────────── */
 .c3-products {
@@ -171,23 +158,25 @@ html.concept-3 body { overflow: visible; height: auto; }
   border-bottom: 1px solid var(--border);
 }
 
-/* Product group crossfade */
+/* Product group crossfade — CSS grid stack avoids display:none jank */
+.c3-product-groups {
+  display: grid;
+}
 .c3-product-group {
-  display: none;
+  grid-area: 1 / 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.65s ease;
 }
 .c3-product-group--active {
-  display: block;
-  animation: c3-fade-in 0.35s ease;
-}
-@keyframes c3-fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  opacity: 1;
+  pointer-events: auto;
 }
 
-/* Grey image placeholders per group */
-.c3-product-group[data-group="0"] .product-img-wrap { background: #E2DDD7; }
-.c3-product-group[data-group="1"] .product-img-wrap { background: #CBCAC8; }
-.c3-product-group[data-group="2"] .product-img-wrap { background: #B0ADA9; }
+/* Image placeholder colours match each slide background */
+.c3-product-group[data-group="0"] .product-img-wrap { background: #E7EAEE; }
+.c3-product-group[data-group="1"] .product-img-wrap { background: #D9D9D9; }
+.c3-product-group[data-group="2"] .product-img-wrap { background: #8B919A; }
 
 /* 5-column product grid to show all 5 cards in one row */
 .concept-3 .products-grid { grid-template-columns: repeat(5, 1fr); }
@@ -200,6 +189,13 @@ html.concept-3 body { overflow: visible; height: auto; }
 }
 .c3-categories .section-title { text-align: center; margin-bottom: 0; }
 .c3-categories .products-cta  { text-align: center; margin-top: 24px; }
+
+/* Products CTA row: View All left, arrows right */
+.c3-products-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .c3-roundel-grid {
   display: flex;
@@ -235,8 +231,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 
 .c3-block-img {
   width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 4px 4px 0 0;
+  aspect-ratio: 4/3;
 }
 /* Distinct grey shades per block */
 .c3-block:nth-child(1) .c3-block-img { background: #E7EAEE; }
@@ -245,47 +240,43 @@ html.concept-3 body { overflow: visible; height: auto; }
 .c3-block:nth-child(4) .c3-block-img { background: #8B919A; }
 
 .c3-block-body {
-  padding: 20px 24px 28px;
-  border: 1px solid var(--border);
-  border-top: none;
-  border-radius: 0 0 4px 4px;
+  padding: 24px 0 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   flex: 1;
-}
-.c3-block-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
 }
 .c3-block-title {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.2;
   color: var(--black);
 }
 .c3-block-text {
   font-size: 13px;
-  color: var(--gray-600);
-  line-height: 1.75;
+  color: #777;
+  line-height: 1.7;
   flex: 1;
 }
 .c3-block-link {
   display: inline-block;
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 12px 24px;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--gold);
   text-decoration: none;
-  margin-top: 8px;
-  transition: color 0.2s;
+  border: 1px solid var(--gold);
+  transition: background 0.2s, color 0.2s;
 }
-.c3-block-link:hover { color: var(--gold-hover); }
+.c3-block-link:hover {
+  background: var(--gold);
+  color: var(--white);
+}
 
 /* ── C3: Evergreen Topics (no images) ─────────────────────── */
 .c3-evergreen {
@@ -293,7 +284,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   padding: 72px 52px;
   border-top: 1px solid var(--border);
 }
-.c3-evergreen .section-title { margin-bottom: 32px; }
+.c3-evergreen .section-title { margin-bottom: 32px; text-align: center; }
 
 .c3-evergreen-grid {
   display: grid;
@@ -435,9 +426,10 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-slide-title  { font-size: 34px; }
   .c3-slide-eyebrow { font-size: 10px; }
   .c3-slide-sub { font-size: 13px; }
-  .c3-arrow { width: 36px; height: 36px; font-size: 22px; }
-  .c3-prev { left: 12px; }
-  .c3-next { right: 12px; }
+  .c3-arrow { width: 30px; height: 30px; font-size: 20px; }
+  .c3-pause { width: 30px; height: 30px; }
+  .c3-dots-pill  { bottom: 14px; left: 14px; padding: 6px 10px; gap: 6px; }
+  .c3-controls-pill { bottom: 14px; right: 14px; padding: 4px 6px; }
 
   /* ── Products mobile ──────────────────────────────────────── */
   .c3-products { padding: 24px 0 32px; }

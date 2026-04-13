@@ -172,22 +172,22 @@
 
         </div><!-- /c3-slides -->
 
-        <!-- Left / Right chevrons -->
-        <button class="c3-arrow c3-prev" aria-label="Previous slide">&#8249;</button>
-        <button class="c3-arrow c3-next" aria-label="Next slide">&#8250;</button>
+        <!-- Bottom-left: dots pill -->
+        <div class="c3-dots-pill">
+          <button class="c3-dot c3-dot--active" aria-label="Go to slide 1"></button>
+          <button class="c3-dot" aria-label="Go to slide 2"></button>
+          <button class="c3-dot" aria-label="Go to slide 3"></button>
+        </div>
 
-        <!-- Dots + Pause -->
-        <div class="c3-bottom-controls">
-          <div class="c3-dots-wrap">
-            <button class="c3-dot c3-dot--active" aria-label="Go to slide 1"></button>
-            <button class="c3-dot" aria-label="Go to slide 2"></button>
-            <button class="c3-dot" aria-label="Go to slide 3"></button>
-          </div>
+        <!-- Bottom-right: pause + arrows pill -->
+        <div class="c3-controls-pill">
           <button class="c3-pause" aria-label="Pause slideshow">
             <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true">
               <rect x="4" y="3" width="4" height="18"/><rect x="16" y="3" width="4" height="18"/>
             </svg>
           </button>
+          <button class="c3-arrow c3-prev" aria-label="Previous slide">&#8249;</button>
+          <button class="c3-arrow c3-next" aria-label="Next slide">&#8250;</button>
         </div>
 
       </div><!-- /c3-carousel -->
@@ -195,19 +195,11 @@
       <!-- ── Products (change with banner) ─────────────────── -->
       <div class="c3-products">
 
-        <div class="products-header" data-reveal>
-          <h2 class="section-title">Lindt Recommends</h2>
-          <div class="products-tabs-row">
-            <div class="filter-tabs">
-              <button class="tab tab--active" data-c3-tab="0">Easter Gifts</button>
-              <button class="tab" data-c3-tab="1">Dubai Style</button>
-              <button class="tab" data-c3-tab="2">My Lindt Offers</button>
-            </div>
-            <div class="carousel-arrows desktop-only">
-              <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous" disabled>&#8592;</button>
-              <button class="carousel-arrow carousel-arrow--next" aria-label="Next">&#8594;</button>
-            </div>
-          </div>
+        <!-- Hidden tabs still needed for JS banner↔product sync -->
+        <div style="display:none">
+          <button class="tab tab--active" data-c3-tab="0">Easter Gifts</button>
+          <button class="tab" data-c3-tab="1">Dubai Style</button>
+          <button class="tab" data-c3-tab="2">My Lindt Offers</button>
         </div>
 
         <!-- Product groups — one per banner slide -->
@@ -461,8 +453,12 @@
 
         </div><!-- /c3-product-groups -->
 
-        <div class="products-cta" data-reveal data-delay="200">
+        <div class="products-cta c3-products-cta-row" data-reveal data-delay="200">
           <a href="#" class="btn btn--outline-gold">View All</a>
+          <div class="carousel-arrows">
+            <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous" disabled>&#8592;</button>
+            <button class="carousel-arrow carousel-arrow--next" aria-label="Next">&#8594;</button>
+          </div>
         </div>
 
       </div><!-- /c3-products -->
@@ -523,47 +519,43 @@
 
       <div class="c3-blocks-grid">
 
-        <!-- Block 1: Retail Stores -->
+        <!-- Block 1: Visit us -->
         <div class="c3-block" data-reveal data-delay="0">
           <div class="c3-block-img"></div>
           <div class="c3-block-body">
-            <span class="c3-block-label">Experience</span>
-            <h3 class="c3-block-title">Retail Stores</h3>
-            <p class="c3-block-text">It's more than a store, it's a fully-fledged chocolate experience. Visit us and explore our world of premium chocolate.</p>
-            <a href="#" class="c3-block-link">Find your nearest store →</a>
+            <h3 class="c3-block-title">Visit us</h3>
+            <p class="c3-block-text">It's more than a store, it's a fully-fledged chocolate experience.</p>
+            <a href="#" class="c3-block-link">Find our nearest store</a>
           </div>
         </div>
 
-        <!-- Block 2: Campaigns & Recommends -->
+        <!-- Block 2: Find the perfect gift -->
         <div class="c3-block" data-reveal data-delay="100">
           <div class="c3-block-img"></div>
           <div class="c3-block-body">
-            <span class="c3-block-label">Discover</span>
-            <h3 class="c3-block-title">Gift Finder &amp; Concierge</h3>
-            <p class="c3-block-text">Let our Master Chocolatiers guide you to the perfect gift. Personalised recommendations for every occasion and budget.</p>
-            <a href="#" class="c3-block-link">Get recommendations →</a>
+            <h3 class="c3-block-title">Find the perfect gift</h3>
+            <p class="c3-block-text">Discover our luxury chocolate gifts</p>
+            <a href="#" class="c3-block-link">Shop now</a>
           </div>
         </div>
 
-        <!-- Block 3: MyLindt Loyalty -->
+        <!-- Block 3: MyLindt Rewards -->
         <div class="c3-block" data-reveal data-delay="200">
           <div class="c3-block-img"></div>
           <div class="c3-block-body">
-            <span class="c3-block-label">Rewards</span>
-            <h3 class="c3-block-title">MyLindt Loyalty Programme</h3>
-            <p class="c3-block-text">Join thousands of chocolate lovers earning exclusive rewards, early access to new products, and members-only pricing.</p>
-            <a href="#" class="c3-block-link">Join MyLindt →</a>
+            <h3 class="c3-block-title">MyLindt Rewards</h3>
+            <p class="c3-block-text">Enjoy exclusive rewards and special chocolate moments.</p>
+            <a href="#" class="c3-block-link">Join now</a>
           </div>
         </div>
 
-        <!-- Block 4: B2B -->
+        <!-- Block 4: Lindt for Business -->
         <div class="c3-block" data-reveal data-delay="300">
           <div class="c3-block-img"></div>
           <div class="c3-block-body">
-            <span class="c3-block-label">Business</span>
             <h3 class="c3-block-title">Lindt for Business</h3>
-            <p class="c3-block-text">Bespoke corporate gifting solutions, branded chocolate collections, and bulk orders tailored to your business needs.</p>
-            <a href="#" class="c3-block-link">Explore B2B options →</a>
+            <p class="c3-block-text">Discover the finest selection of exquisite corporate gifts</p>
+            <a href="#" class="c3-block-link">Shop the range</a>
           </div>
         </div>
 
