@@ -405,13 +405,6 @@ html.concept-3 body { overflow: visible; height: auto; }
    ============================================================ */
 @media (max-width: 768px) {
 
-  /* Roundels + evergreen cards: reveal all at once (no per-item stagger) */
-  .c3-roundel-grid .roundel-item[data-reveal],
-  .c3-ev-card[data-reveal] {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
 
   html.concept-3 { overflow: auto; height: auto; overscroll-behavior-y: none; }
   html.concept-3 body { overflow: visible; height: auto; overscroll-behavior-y: none; }
@@ -547,5 +540,15 @@ html.concept-3 body { overflow: visible; height: auto; }
   html.concept-3 [data-reveal].revealed {
     opacity: 1 !important;
     transform: translateY(0) !important;
+  }
+
+  /* Roundels + evergreen: reveal all at once — placed after the general rule
+     and with higher specificity so these win the !important battle */
+  html.concept-3 .c3-roundel-grid .roundel-item[data-reveal],
+  html.concept-3 .c3-ev-card[data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    transition-delay: 0ms !important;
   }
 }
