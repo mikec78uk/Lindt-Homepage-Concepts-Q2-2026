@@ -115,10 +115,12 @@
 
     if (!main) return;
 
-    const isConcept2 = document.documentElement.classList.contains('concept-2');
+    const isConcept2    = document.documentElement.classList.contains('concept-2');
+    const isConcept3    = document.documentElement.classList.contains('concept-3');
+    const isNormalScroll = isConcept2 || isConcept3;
 
-    /* ── Scroll reveal for concept-2 mobile ─────────────────── */
-    if (isConcept2) {
+    /* ── Scroll reveal for concept-2 / concept-3 mobile ─────── */
+    if (isNormalScroll) {
       const revealObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -147,8 +149,8 @@
     /* ── 1. Header hide / show on scroll ─────────────────────── */
     let lastScroll = 0;
 
-    const scrollTarget = isConcept2 ? window : main;
-    const getScroll = () => isConcept2 ? window.scrollY : main.scrollTop;
+    const scrollTarget = isNormalScroll ? window : main;
+    const getScroll = () => isNormalScroll ? window.scrollY : main.scrollTop;
 
     scrollTarget.addEventListener('scroll', () => {
       const current = getScroll();

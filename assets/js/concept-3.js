@@ -1,0 +1,158 @@
+/* ============================================================
+   LINDT HOMEPAGE — CONCEPT 3
+   concept-3.js
+
+   Hero banner carousel with linked product group switching.
+   Tabs in the products section also control the banner.
+   ============================================================ */
+
+(function () {
+  'use strict';
+
+  if (!document.documentElement.classList.contains('concept-3')) return;
+
+  /* ──────────────────────────────────────────────────────────
+     REFERENCES
+     ────────────────────────────────────────────────────────── */
+  const carousel      = document.getElementById('c3-carousel');
+  const slides        = [...document.querySelectorAll('.c3-slide')];
+  const dots          = [...document.querySelectorAll('.c3-dot')];
+  const prevBtn       = document.querySelector('.c3-prev');
+  const nextBtn       = document.querySelector('.c3-next');
+  const pauseBtn      = document.querySelector('.c3-pause');
+  const productGroups = [...document.querySelectorAll('.c3-product-group')];
+  const tabs          = [...document.querySelectorAll('[data-c3-tab]')];
+
+  if (!slides.length) return;
+
+  const INTERVAL   = 5000;
+  const DARK_SLIDES = [2]; // slide indices that need light-coloured controls
+
+  let current  = 0;
+  let isPaused = false;
+  let timer    = null;
+
+  /* ──────────────────────────────────────────────────────────
+     CORE: go to slide index
+     ────────────────────────────────────────────────────────── */
+  function goTo(idx) {
+    const prev = current;
+    current    = ((idx % slides.length) + slides.length) % slides.length;
+
+    // Slides
+    slides[prev].classList.remove('c3-slide--active');
+    slides[current].classList.add('c3-slide--active');
+
+    // Dots
+    dots[prev].classList.remove('c3-dot--active');
+    dots[current].classList.add('c3-dot--active');
+
+    // Product groups
+    if (productGroups[prev]) productGroups[prev].classList.remove('c3-product-group--active');
+    if (productGroups[current]) productGroups[current].classList.add('c3-product-group--active');
+
+    // Tabs — sync active state
+    tabs.forEach(t => t.classList.remove('tab--active'));
+    const activeTab = tabs[current];
+    if (activeTab) activeTab.classList.add('tab--active');
+
+    // Control theme (light controls on dark slide)
+    if (carousel) {
+      if (DARK_SLIDES.includes(current)) {
+        carousel.classList.add('c3-dark-controls');
+      } else {
+        carousel.classList.remove('c3-dark-controls');
+      }
+    }
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     AUTO-PLAY TIMER
+     ────────────────────────────────────────────────────────── */
+  function startTimer() {
+    stopTimer();
+    timer = setInterval(function () { goTo(current + 1); }, INTERVAL);
+  }
+
+  function stopTimer() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     CONTROLS
+     ────────────────────────────────────────────────────────── */
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function () {
+      goTo(current - 1);
+      if (!isPaused) startTimer();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function () {
+      goTo(current + 1);
+      if (!isPaused) startTimer();
+    });
+  }
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      goTo(i);
+      if (!isPaused) startTimer();
+    });
+  });
+
+  if (pauseBtn) {
+    pauseBtn.addEventListener('click', function () {
+      isPaused = !isPaused;
+      if (isPaused) {
+        stopTimer();
+        pauseBtn.setAttribute('aria-label', 'Play slideshow');
+        pauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>';
+      } else {
+        startTimer();
+        pauseBtn.setAttribute('aria-label', 'Pause slideshow');
+        pauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><rect x="4" y="3" width="4" height="18"/><rect x="16" y="3" width="4" height="18"/></svg>';
+      }
+    });
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     TABS → also change banner slide
+     (main.js already handles the visual tab--active state,
+      here we extend that to also switch the banner)
+     ────────────────────────────────────────────────────────── */
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var idx = parseInt(tab.dataset.c3Tab, 10);
+      if (!isNaN(idx)) {
+        goTo(idx);
+        if (!isPaused) startTimer();
+      }
+    });
+  });
+
+  /* ──────────────────────────────────────────────────────────
+     TOUCH / SWIPE on hero carousel
+     ────────────────────────────────────────────────────────── */
+  if (carousel) {
+    var touchStartX = 0;
+    carousel.addEventListener('touchstart', function (e) {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', function (e) {
+      var diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        goTo(diff > 0 ? current + 1 : current - 1);
+        if (!isPaused) startTimer();
+      }
+    }, { passive: true });
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     INIT
+     ────────────────────────────────────────────────────────── */
+  goTo(0);
+  startTimer();
+
+})();

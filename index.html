@@ -82,9 +82,9 @@
     /* Cards grid */
     .concepts-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
-      max-width: 880px;
+      max-width: 1140px;
       width: 100%;
     }
 
@@ -245,6 +245,23 @@
             <li>Additional category navigation module that avoids placing text over imagery. Both category navigation options are shown as alternative approaches and are not intended to appear together in the final design.</li>
             <li>Mobile uses a more conventional scroll behaviour, rather than the slide-based interaction used in Concept 1.</li>
             <li>Expanded product carousel with 5 visible products (vs. 4 in Concept 1).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Concept 3 -->
+      <div class="concept-card">
+        <h2>Homepage Concept 3</h2>
+        <a href="concept-3.html" class="btn-concept">View Concept 3</a>
+        <div class="notes-section">
+          <h3>Notes</h3>
+          <ul>
+            <li>Wireframe concept using grey frames throughout — no imagery, allowing focus on layout, hierarchy, and interaction structure.</li>
+            <li>Hero section features a 3-slide banner carousel with auto-play, pause, chevron navigation, and dot indicators. The product carousel below updates to feature products from the active banner slide.</li>
+            <li>Category navigation uses swipeable roundels on mobile (horizontal scroll) rather than a stacked grid.</li>
+            <li>Content section displays 4 business-need slots in a 2×2 grid on desktop, stacking on mobile.</li>
+            <li>Evergreen topics section ("Explore more from Lindt") presents 4 editorial cards without imagery: Lindt History, Lindt Museum, Farming Program, Meet the Chocolatiers.</li>
+            <li>Instagram widget shown as a structured grey-box grid (desktop: asymmetric layout with tall centre columns; mobile: 2×3 grid).</li>
           </ul>
         </div>
       </div>

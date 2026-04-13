@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" class="concept-3">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lindt – Homepage Concept 3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="concept-3">
+
+  <!-- ═══════════════════════════════════════════════════════
+       FLOATING: Live Chat Button
+       ═══════════════════════════════════════════════════════ -->
+  <button class="chat-btn" aria-label="Open live chat">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  </button>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SITE HEADER  (same as Concept 2)
+       ═══════════════════════════════════════════════════════ -->
+  <header class="site-header" id="site-header">
+
+    <!-- Utility bar (desktop only) -->
+    <div class="header-utility desktop-only">
+      <a href="#">MyLindt Bonus Club</a>
+      <span class="sep">|</span>
+      <a href="#">Lindt for Business</a>
+      <span class="sep">|</span>
+      <span>🇬🇧 United Kingdom</span>
+    </div>
+
+    <!-- USP bar — mobile -->
+    <div class="header-usp mobile-only">
+      <span class="usp-msg usp-active">Just £25.00 more for&nbsp;<strong>FREE</strong>&nbsp;shipping</span>
+      <span class="usp-msg">Join MyLindt Rewards for 10% off your next purchase</span>
+      <span class="usp-msg">Another promotional message</span>
+    </div>
+
+    <!-- Main header row -->
+    <div class="header-main">
+
+      <a href="index.html" class="logo-link" aria-label="Lindt – return to homepage">
+        <img src="assets/images/logo-Desktop.webp" alt="Lindt Maître Chocolatier" class="logo-img logo-img--desktop desktop-only">
+        <img src="assets/images/logo-mobile.webp" alt="Lindt" class="logo-img logo-img--mobile mobile-only">
+      </a>
+
+      <!-- Desktop: search + icons -->
+      <div class="header-right desktop-only">
+        <div class="header-search">
+          <input type="search" placeholder="Search for something special" aria-label="Site search">
+        </div>
+        <div class="header-icons">
+          <button aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+          <button aria-label="My account">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </button>
+          <button aria-label="Store finder">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </button>
+          <button aria-label="Basket" style="position:relative;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="basket-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile icons -->
+      <div class="header-icons mobile-only">
+        <button aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button aria-label="My account">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <button aria-label="Store finder">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </button>
+        <button aria-label="Basket" style="position:relative;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="basket-count">0</span>
+        </button>
+        <button aria-label="Open menu">
+          <svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <line x1="0" y1="1" x2="18" y2="1"/>
+            <line x1="0" y1="7" x2="18" y2="7"/>
+            <line x1="0" y1="13" x2="18" y2="13"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Desktop navigation -->
+    <nav class="header-nav desktop-only" aria-label="Main navigation">
+      <a href="#">Easter</a>
+      <a href="#">Gift Ideas ▾</a>
+      <a href="#">Shop ▾</a>
+      <a href="#">Pick and Mix</a>
+      <a href="#">Chocolate Subscription</a>
+      <a href="#">Current Offers ▾</a>
+      <a href="#">World of Lindt ▾</a>
+    </nav>
+
+    <!-- USP bar — desktop -->
+    <div class="header-usp desktop-only" id="usp-bar">
+      <span class="usp-msg usp-active">Just £25.00 more for&nbsp;<strong>FREE</strong>&nbsp;shipping</span>
+      <span class="usp-msg">Join MyLindt Rewards for 10% off your next purchase</span>
+      <span class="usp-msg">Another promotional message</span>
+    </div>
+
+  </header><!-- /site-header -->
+
+  <!-- Mobile search bar -->
+  <div class="mobile-search-bar mobile-only" id="mobile-search">
+    <input type="search" placeholder="Search for something special" aria-label="Site search">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN CONTENT
+       ═══════════════════════════════════════════════════════ -->
+  <main class="site-main" id="site-main">
+
+    <!-- ─────────────────────────────────────────────────────
+         SECTION 1 · HERO BANNER CAROUSEL + PRODUCTS
+         ───────────────────────────────────────────────────── -->
+    <section class="c3-hero-products">
+
+      <!-- ── Hero Carousel ─────────────────────────────────── -->
+      <div class="c3-carousel" id="c3-carousel">
+
+        <!-- Slides -->
+        <div class="c3-slides">
+
+          <!-- Slide 1: Easter Sale — #E7EAEE -->
+          <div class="c3-slide c3-slide--1 c3-slide--active" data-slide-index="0">
+            <div class="c3-slide-inner">
+              <p class="c3-slide-eyebrow">Up to 50% off</p>
+              <h1 class="c3-slide-title">Easter Sale<br>Now On</h1>
+              <p class="c3-slide-sub">Easter Sale Exclusively Online Until 05/04</p>
+              <a href="#" class="btn btn--outline-dark">Shop Easter Sale</a>
+            </div>
+          </div>
+
+          <!-- Slide 2: Dubai Style — #D9D9D9 -->
+          <div class="c3-slide c3-slide--2" data-slide-index="1">
+            <div class="c3-slide-inner">
+              <p class="c3-slide-eyebrow">New Collection</p>
+              <h1 class="c3-slide-title">Dubai Style<br>Chocolate</h1>
+              <p class="c3-slide-sub">Experience the richness of pistachio cream chocolate</p>
+              <a href="#" class="btn btn--outline-dark">Discover Now</a>
+            </div>
+          </div>
+
+          <!-- Slide 3: MyLindt Offers — #8B919A -->
+          <div class="c3-slide c3-slide--3" data-slide-index="2">
+            <div class="c3-slide-inner">
+              <p class="c3-slide-eyebrow">Exclusive for members</p>
+              <h1 class="c3-slide-title">MyLindt<br>Offers</h1>
+              <p class="c3-slide-sub">Join MyLindt Club and enjoy exclusive rewards</p>
+              <a href="#" class="btn btn--outline">Join Now</a>
+            </div>
+          </div>
+
+        </div><!-- /c3-slides -->
+
+        <!-- Left / Right chevrons -->
+        <button class="c3-arrow c3-prev" aria-label="Previous slide">&#8249;</button>
+        <button class="c3-arrow c3-next" aria-label="Next slide">&#8250;</button>
+
+        <!-- Dots + Pause -->
+        <div class="c3-bottom-controls">
+          <div class="c3-dots-wrap">
+            <button class="c3-dot c3-dot--active" aria-label="Go to slide 1"></button>
+            <button class="c3-dot" aria-label="Go to slide 2"></button>
+            <button class="c3-dot" aria-label="Go to slide 3"></button>
+          </div>
+          <button class="c3-pause" aria-label="Pause slideshow">
+            <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true">
+              <rect x="4" y="3" width="4" height="18"/><rect x="16" y="3" width="4" height="18"/>
+            </svg>
+          </button>
+        </div>
+
+      </div><!-- /c3-carousel -->
+
+      <!-- ── Products (change with banner) ─────────────────── -->
+      <div class="c3-products">
+
+        <div class="products-header" data-reveal>
+          <h2 class="section-title">Lindt Recommends</h2>
+          <div class="products-tabs-row">
+            <div class="filter-tabs">
+              <button class="tab tab--active" data-c3-tab="0">Easter Gifts</button>
+              <button class="tab" data-c3-tab="1">Dubai Style</button>
+              <button class="tab" data-c3-tab="2">My Lindt Offers</button>
+            </div>
+            <div class="carousel-arrows desktop-only">
+              <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous" disabled>&#8592;</button>
+              <button class="carousel-arrow carousel-arrow--next" aria-label="Next">&#8594;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product groups — one per banner slide -->
+        <div class="c3-product-groups">
+
+          <!-- Group 0: Easter Sale -->
+          <div class="c3-product-group c3-product-group--active" data-group="0">
+            <div class="products-grid">
+
+              <div class="product-card">
+                <div class="product-img-wrap"></div>
+                <div class="product-info">
+                  <p class="product-title">Lindt GOLD Bunny</p>
+                  <p class="product-subtitle">Easter Egg Flower Edition 310g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£22.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap">
+                  <span class="product-badge product-badge--sale">Easter Sale</span>
+                </div>
+                <div class="product-info">
+                  <p class="product-title">Lindt GOLD Bunny</p>
+                  <p class="product-subtitle">Extremely long product name such as Easter Egg Flower Edition 310g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£22.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                    <p class="product-price--was">was £44.00 (save 50%)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap">
+                  <span class="product-badge product-badge--new">New</span>
+                </div>
+                <div class="product-info">
+                  <p class="product-title">Lindor Easter Egg</p>
+                  <p class="product-subtitle">Milk Chocolate Truffles 200g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£14.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap"></div>
+                <div class="product-info">
+                  <p class="product-title">Easter Gift Box</p>
+                  <p class="product-subtitle">Assorted Chocolates 450g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£28.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap"></div>
+                <div class="product-info">
+                  <p class="product-title">Lindt Excellence</p>
+                  <p class="product-subtitle">Dark Chocolate Easter Collection</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£18.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- /group 0 -->
+
+          <!-- Group 1: Dubai Style -->
+          <div class="c3-product-group" data-group="1">
+            <div class="products-grid">
+
+              <div class="product-card">
+                <div class="product-img-wrap">
+                  <span class="product-badge product-badge--new">New</span>
+                </div>
+                <div class="product-info">
+                  <p class="product-title">Dubai Style Bar</p>
+                  <p class="product-subtitle">Pistachio &amp; Knafeh Chocolate 100g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£8.50</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap">
+                  <span class="product-badge product-badge--new">New</span>
+                </div>
+                <div class="product-info">
+                  <p class="product-title">Dubai Style Box</p>
+                  <p class="product-subtitle">Assorted Dubai Style Chocolates 200g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£24.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap"></div>
+                <div class="product-info">
+                  <p class="product-title">Lindor Dubai Truffles</p>
+                  <p class="product-subtitle">Pistachio Cream Truffles 200g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£16.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap"></div>
+                <div class="product-info">
+                  <p class="product-title">Dubai Gift Set</p>
+                  <p class="product-subtitle">Premium Dubai Style Collection 350g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£32.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap"></div>
+                <div class="product-info">
+                  <p class="product-title">Lindt Excellence</p>
+                  <p class="product-subtitle">Pistachio Dark Chocolate 100g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£5.50</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- /group 1 -->
+
+          <!-- Group 2: My Lindt Offers -->
+          <div class="c3-product-group" data-group="2">
+            <div class="products-grid">
+
+              <div class="product-card">
+                <div class="product-img-wrap">
+                  <span class="product-badge product-badge--sale">Member Deal</span>
+                </div>
+                <div class="product-info">
+                  <p class="product-title">MyLindt Box</p>
+                  <p class="product-subtitle">Exclusive Member Selection 400g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£26.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                    <p class="product-price--was">was £34.00</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap">
+                  <span class="product-badge product-badge--sale">Member Deal</span>
+                </div>
+                <div class="product-info">
+                  <p class="product-title">Lindor Truffles</p>
+                  <p class="product-subtitle">Assorted Flavours Gift Bag 337g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£12.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                    <p class="product-price--was">was £16.00</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap"></div>
+                <div class="product-info">
+                  <p class="product-title">Lindt Reward Box</p>
+                  <p class="product-subtitle">Members Only Premium Selection</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£38.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap"></div>
+                <div class="product-info">
+                  <p class="product-title">Lindt Excellence</p>
+                  <p class="product-subtitle">Dark 70% Member Bundle 3×100g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£10.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-img-wrap"></div>
+                <div class="product-info">
+                  <p class="product-title">Lindor Cornet</p>
+                  <p class="product-subtitle">Milk Chocolate Members Price 200g</p>
+                  <div class="product-bottom">
+                    <div class="product-footer">
+                      <p class="product-price">£9.00</p>
+                      <button class="product-add" aria-label="Add to basket">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- /group 2 -->
+
+        </div><!-- /c3-product-groups -->
+
+        <div class="products-cta" data-reveal data-delay="200">
+          <a href="#" class="btn btn--outline-gold">View All</a>
+        </div>
+
+      </div><!-- /c3-products -->
+
+    </section><!-- /c3-hero-products -->
+
+    <!-- ─────────────────────────────────────────────────────
+         SECTION 2 · CATEGORY NAVIGATION (roundels, swipeable mobile)
+         ───────────────────────────────────────────────────── -->
+    <section class="c3-categories">
+
+      <h2 class="section-title" data-reveal>Explore a world of exceptional chocolate</h2>
+
+      <div class="c3-roundel-grid">
+
+        <a href="#" class="roundel-item" data-reveal data-delay="0">
+          <div class="roundel-img-wrap"></div>
+          <span class="roundel-label">All Easter Items</span>
+        </a>
+
+        <a href="#" class="roundel-item" data-reveal data-delay="80">
+          <div class="roundel-img-wrap"></div>
+          <span class="roundel-label">New Products</span>
+        </a>
+
+        <a href="#" class="roundel-item" data-reveal data-delay="160">
+          <div class="roundel-img-wrap"></div>
+          <span class="roundel-label">Lindor</span>
+        </a>
+
+        <a href="#" class="roundel-item" data-reveal data-delay="240">
+          <div class="roundel-img-wrap"></div>
+          <span class="roundel-label">Pick &amp; Mix</span>
+        </a>
+
+        <a href="#" class="roundel-item" data-reveal data-delay="320">
+          <div class="roundel-img-wrap"></div>
+          <span class="roundel-label">Vegan</span>
+        </a>
+
+        <a href="#" class="roundel-item" data-reveal data-delay="400">
+          <div class="roundel-img-wrap"></div>
+          <span class="roundel-label">Personalised Gifts</span>
+        </a>
+
+      </div>
+
+      <div class="products-cta" data-reveal data-delay="200">
+        <a href="#" class="btn btn--outline-gold">View all products</a>
+      </div>
+
+    </section><!-- /c3-categories -->
+
+    <!-- ─────────────────────────────────────────────────────
+         SECTION 3 · CONTENT BLOCKS (2×2 desktop, stacked mobile)
+         ───────────────────────────────────────────────────── -->
+    <section class="c3-content">
+
+      <div class="c3-blocks-grid">
+
+        <!-- Block 1: Retail Stores -->
+        <div class="c3-block" data-reveal data-delay="0">
+          <div class="c3-block-img"></div>
+          <div class="c3-block-body">
+            <span class="c3-block-label">Experience</span>
+            <h3 class="c3-block-title">Retail Stores</h3>
+            <p class="c3-block-text">It's more than a store, it's a fully-fledged chocolate experience. Visit us and explore our world of premium chocolate.</p>
+            <a href="#" class="c3-block-link">Find your nearest store →</a>
+          </div>
+        </div>
+
+        <!-- Block 2: Campaigns & Recommends -->
+        <div class="c3-block" data-reveal data-delay="100">
+          <div class="c3-block-img"></div>
+          <div class="c3-block-body">
+            <span class="c3-block-label">Discover</span>
+            <h3 class="c3-block-title">Gift Finder &amp; Concierge</h3>
+            <p class="c3-block-text">Let our Master Chocolatiers guide you to the perfect gift. Personalised recommendations for every occasion and budget.</p>
+            <a href="#" class="c3-block-link">Get recommendations →</a>
+          </div>
+        </div>
+
+        <!-- Block 3: MyLindt Loyalty -->
+        <div class="c3-block" data-reveal data-delay="200">
+          <div class="c3-block-img"></div>
+          <div class="c3-block-body">
+            <span class="c3-block-label">Rewards</span>
+            <h3 class="c3-block-title">MyLindt Loyalty Programme</h3>
+            <p class="c3-block-text">Join thousands of chocolate lovers earning exclusive rewards, early access to new products, and members-only pricing.</p>
+            <a href="#" class="c3-block-link">Join MyLindt →</a>
+          </div>
+        </div>
+
+        <!-- Block 4: B2B -->
+        <div class="c3-block" data-reveal data-delay="300">
+          <div class="c3-block-img"></div>
+          <div class="c3-block-body">
+            <span class="c3-block-label">Business</span>
+            <h3 class="c3-block-title">Lindt for Business</h3>
+            <p class="c3-block-text">Bespoke corporate gifting solutions, branded chocolate collections, and bulk orders tailored to your business needs.</p>
+            <a href="#" class="c3-block-link">Explore B2B options →</a>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /c3-content -->
+
+    <!-- ─────────────────────────────────────────────────────
+         SECTION 4 · EVERGREEN TOPICS ("Explore more from Lindt")
+         ───────────────────────────────────────────────────── -->
+    <section class="c3-evergreen">
+
+      <h2 class="section-title" data-reveal>Explore more from Lindt</h2>
+
+      <div class="c3-evergreen-grid">
+
+        <div class="c3-ev-card" data-reveal data-delay="100">
+          <div class="c3-ev-card-content">
+            <div class="c3-ev-card-top">
+              <span class="cat-label">Lindt History</span>
+              <h3 class="cat-title">It all started<br>in 1845&nbsp;&hellip;</h3>
+            </div>
+            <a href="#" class="cat-link">Learn more</a>
+          </div>
+        </div>
+
+        <div class="c3-ev-card" data-reveal data-delay="200">
+          <div class="c3-ev-card-content">
+            <div class="c3-ev-card-top">
+              <span class="cat-label">Lindt Museum</span>
+              <h3 class="cat-title">Home of<br>Chocolate</h3>
+            </div>
+            <a href="#" class="cat-link">Learn more</a>
+          </div>
+        </div>
+
+        <div class="c3-ev-card c3-ev-card--dark" data-reveal data-delay="300">
+          <div class="c3-ev-card-content">
+            <div class="c3-ev-card-top">
+              <span class="cat-label">Lindt &amp; Spr&uuml;ngli</span>
+              <h3 class="cat-title">Farming<br>Program</h3>
+            </div>
+            <a href="#" class="cat-link">Learn more</a>
+          </div>
+        </div>
+
+        <div class="c3-ev-card c3-ev-card--dark" data-reveal data-delay="400">
+          <div class="c3-ev-card-content">
+            <div class="c3-ev-card-top">
+              <span class="cat-label">Step into our kitchen</span>
+              <h3 class="cat-title">Meet the<br>Chocolatiers</h3>
+            </div>
+            <a href="#" class="cat-link">Explore</a>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /c3-evergreen -->
+
+    <!-- ─────────────────────────────────────────────────────
+         SECTION 5 · NEWSLETTER SIGN UP
+         ───────────────────────────────────────────────────── -->
+    <section class="slide--newsletter c3-newsletter">
+
+      <div class="newsletter-inner">
+        <h2 class="section-title" data-reveal>Stay up to date</h2>
+        <p data-reveal data-delay="100">I would like to be informed about personalised offers and discounts, new products, promotions, surveys and exclusive events.</p>
+
+        <form class="newsletter-form" id="newsletter-form" data-reveal data-delay="200" novalidate>
+          <input type="email" placeholder="Your email address" aria-label="Email address" required>
+          <button type="submit" class="btn btn--gold">Subscribe</button>
+        </form>
+
+        <div class="newsletter-consent" data-reveal data-delay="300">
+          <p class="consent-summary">I can be informed electronically, in accordance with my interest and individual preferences. <button class="consent-read-more" aria-expanded="false">Read more</button></p>
+          <div class="consent-expanded" hidden>
+            <p>Declaring your consent is voluntary. You may withdraw your consent or object to the processing of your personal data for direct marketing purposes at any time. To the extent you do not consent or withdraw your consent, you may not be contacted with information and advice about Lindt products and services. Whether you consent or not does not affect any other individual consent you have given in the past or you will give in the future, which remains valid until withdrawn. For additional information about your consent and corresponding use of your data as well as your rights, please see our <a href="#">data privacy notice</a>.</p>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /newsletter -->
+
+    <!-- ─────────────────────────────────────────────────────
+         SECTION 6 · INSTAGRAM WIDGET
+         ───────────────────────────────────────────────────── -->
+    <section class="c3-instagram">
+
+      <div class="c3-ig-header" data-reveal>
+        <!-- Instagram icon -->
+        <svg class="c3-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4.5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        <h2>Follow @lindt_uk on Instagram</h2>
+      </div>
+
+      <div class="c3-ig-grid" data-reveal data-delay="100">
+        <div class="c3-ig-item c3-ig-item--1"></div>
+        <div class="c3-ig-item c3-ig-item--2"></div>
+        <div class="c3-ig-item c3-ig-item--3"></div>
+        <div class="c3-ig-item c3-ig-item--4"></div>
+        <div class="c3-ig-item c3-ig-item--5"></div>
+        <div class="c3-ig-item c3-ig-item--6"></div>
+      </div>
+
+    </section><!-- /c3-instagram -->
+
+    <!-- ─────────────────────────────────────────────────────
+         SECTION 7 · FOOTER
+         ───────────────────────────────────────────────────── -->
+    <section class="slide--footer c3-footer">
+
+      <div class="footer-grid" data-reveal>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">Customer Service</h3>
+          <ul>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">My Lindt Bonus Club</a></li>
+            <li><a href="#">Business Customers</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">About Us</h3>
+          <ul>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Press Portal</a></li>
+            <li><a href="#">Farming Program</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">Legal Notice</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Disclaimer</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Glossary</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-social-col">
+          <h3 class="footer-heading">Social Media</h3>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">in</a>
+            <a href="#" aria-label="YouTube">▶</a>
+          </div>
+          <p class="footer-payment-label">Payment Methods</p>
+          <p class="footer-payment">PayPal · Mastercard · Visa<br>Klarna · American Express</p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom" data-reveal data-delay="100">
+        <span>© 2025 Chocoladefabriken Lindt &amp; Sprüngli AG</span>
+        <span>Chocoladefabriken Lindt &amp; Sprüngli GmbH</span>
+      </div>
+
+    </section><!-- /footer -->
+
+  </main><!-- /site-main -->
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/concept-3.js"></script>
+</body>
+</html>
