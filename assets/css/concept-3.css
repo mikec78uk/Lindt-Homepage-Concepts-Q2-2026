@@ -441,7 +441,9 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-products .products-header { padding: 0 20px; }
   .c3-products .products-cta    { padding: 0 20px; }
 
-  /* Products grid inherits horizontal scroll from .products-grid mobile CSS */
+  /* Products grid: first/last child margins for 20px edge spacing */
+  .c3-products .product-card:first-child { margin-left: 20px; }
+  .c3-products .product-card:last-child  { margin-right: 20px; }
 
   /* ── Categories mobile: horizontal scroll (swipeable) ──────── */
   .c3-categories { padding: 56px 0 48px; }
@@ -454,7 +456,8 @@ html.concept-3 body { overflow: visible; height: auto; }
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    padding: 20px 20px 20px;
+    scroll-padding-left: 20px;
+    padding: 20px 20px;
     gap: 16px;
     scrollbar-width: none;
   }
