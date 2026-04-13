@@ -161,7 +161,6 @@ html.concept-3 body { overflow: visible; height: auto; }
 /* Product group crossfade — CSS grid stack avoids display:none jank */
 .c3-product-groups {
   display: grid;
-  overflow: hidden; /* prevents stacked groups from expanding grid width */
 }
 .c3-product-group {
   grid-area: 1 / 1;
@@ -450,9 +449,11 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-products .products-header { padding: 0 20px; }
   .c3-products .products-cta    { padding: 0 20px; }
 
-  /* Products grid: first/last child margins for 20px edge spacing */
-  .c3-products .product-card:first-child { margin-left: 20px; }
-  .c3-products .product-card:last-child  { margin-right: 20px; }
+  /* Products grid: 20px left inset matching page gutter */
+  .concept-3 .products-grid {
+    padding-left: 20px;  /* overrides main.css padding-left: 0 */
+    scroll-padding-left: 20px;
+  }
 
   /* ── Categories mobile: horizontal scroll (swipeable) ──────── */
   .c3-categories { padding: 56px 0 48px; }
@@ -491,6 +492,7 @@ html.concept-3 body { overflow: visible; height: auto; }
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
+    scroll-padding-left: 20px;
     gap: 12px;
     padding: 16px 20px 20px;
     scrollbar-width: none;
