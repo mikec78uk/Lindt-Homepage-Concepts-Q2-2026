@@ -102,19 +102,22 @@
     });
   });
 
+  const ICON_PAUSE = '<svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><rect x="4" y="3" width="4" height="18"/><rect x="16" y="3" width="4" height="18"/></svg>';
+  const ICON_PLAY  = '<svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>';
+
+  function setPaused(state) {
+    isPaused = state;
+    if (isPaused) {
+      stopTimer();
+      if (pauseBtn) { pauseBtn.setAttribute('aria-label', 'Play slideshow');  pauseBtn.innerHTML = ICON_PLAY;  }
+    } else {
+      startTimer();
+      if (pauseBtn) { pauseBtn.setAttribute('aria-label', 'Pause slideshow'); pauseBtn.innerHTML = ICON_PAUSE; }
+    }
+  }
+
   if (pauseBtn) {
-    pauseBtn.addEventListener('click', function () {
-      isPaused = !isPaused;
-      if (isPaused) {
-        stopTimer();
-        pauseBtn.setAttribute('aria-label', 'Play slideshow');
-        pauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>';
-      } else {
-        startTimer();
-        pauseBtn.setAttribute('aria-label', 'Pause slideshow');
-        pauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><rect x="4" y="3" width="4" height="18"/><rect x="16" y="3" width="4" height="18"/></svg>';
-      }
-    });
+    pauseBtn.addEventListener('click', function () { setPaused(!isPaused); });
   }
 
   /* ──────────────────────────────────────────────────────────
@@ -133,34 +136,19 @@
   });
 
   /* ──────────────────────────────────────────────────────────
-     PAUSE WHILE USER INTERACTS WITH PRODUCT CAROUSEL
-     Stops the auto-advance timer when the user touches or
-     scrolls the products grid, resumes 2 s after they stop.
+     PAUSE WHEN USER INTERACTS WITH PRODUCT CAROUSEL
+     Sets isPaused=true (shows play icon) on first touch/click.
+     Auto-advance only resumes when the user explicitly clicks
+     the play button.
      ────────────────────────────────────────────────────────── */
   const productsSection = document.querySelector('.c3-products');
   if (productsSection) {
-    let resumeTimeout = null;
-
     function onProductInteractionStart() {
-      stopTimer();
-      if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
+      if (!isPaused) setPaused(true);
     }
 
-    function onProductInteractionEnd() {
-      if (resumeTimeout) clearTimeout(resumeTimeout);
-      resumeTimeout = setTimeout(function () {
-        if (!isPaused) startTimer();
-        resumeTimeout = null;
-      }, 2000);
-    }
-
-    productsSection.addEventListener('touchstart',  onProductInteractionStart, { passive: true });
-    productsSection.addEventListener('touchend',    onProductInteractionEnd,   { passive: true });
-    productsSection.addEventListener('touchcancel', onProductInteractionEnd,   { passive: true });
-
-    // Also handle mouse-driven scroll (desktop drag in horizontal scroll)
-    productsSection.addEventListener('mousedown', onProductInteractionStart);
-    document.addEventListener('mouseup', onProductInteractionEnd);
+    productsSection.addEventListener('touchstart', onProductInteractionStart, { passive: true });
+    productsSection.addEventListener('mousedown',  onProductInteractionStart);
   }
 
   /* ──────────────────────────────────────────────────────────
