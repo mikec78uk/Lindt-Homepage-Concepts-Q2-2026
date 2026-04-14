@@ -39,10 +39,6 @@ html.concept-3 body { overflow: visible; height: auto; }
   inset: 0;
   opacity: 0;
   transition: opacity 0.65s ease;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 52px 60px 72px;
   text-align: center;
 }
 .c3-slide--active { opacity: 1; }
@@ -50,13 +46,18 @@ html.concept-3 body { overflow: visible; height: auto; }
 .c3-slide--2 { background: #D9D9D9; }
 .c3-slide--3 { background: #8B919A; }
 
+/* Position content at 60% from the top of the banner */
 .c3-slide-inner {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 120px); /* 60px gutter each side */
+  max-width: 720px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   align-items: center;
-  max-width: 720px;
-  width: 100%;
 }
 .c3-slide-eyebrow {
   font-size: 11px;
@@ -441,8 +442,9 @@ html.concept-3 body { overflow: visible; height: auto; }
 
   /* ── Hero carousel mobile ─────────────────────────────────── */
   .c3-slides { height: 92vw; min-height: 360px; }
-  .c3-slide  { padding: 28px 24px; }
-  .c3-slide-title  { font-size: 28px; }
+  .c3-slide-inner { width: calc(100% - 48px); } /* 24px gutter each side */
+  .c3-slide-title  { font-size: 28px; white-space: nowrap; }
+  .c3-slide-title br { display: none; }
   .c3-slide-eyebrow { font-size: 10px; }
   .c3-slide-sub { font-size: 13px; }
   .c3-arrow { width: 30px; height: 30px; font-size: 20px; }
