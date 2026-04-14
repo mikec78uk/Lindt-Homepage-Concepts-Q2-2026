@@ -80,8 +80,8 @@ html.concept-3 body { overflow: visible; height: auto; }
   line-height: 1.6;
   max-width: 400px;
 }
-/* Extra gap between title and CTA button */
-.c3-slide-inner .btn { margin-top: 16px; }
+/* Gap between title and CTA button */
+.c3-slide-inner .btn { margin-top: 8px; }
 
 /* Single-line titles on desktop */
 @media (min-width: 769px) {
