@@ -40,9 +40,9 @@ html.concept-3 body { overflow: visible; height: auto; }
   opacity: 0;
   transition: opacity 0.65s ease;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  padding: 52px 60px;
+  padding: 52px 60px 72px;
   text-align: center;
 }
 .c3-slide--active { opacity: 1; }
@@ -82,9 +82,10 @@ html.concept-3 body { overflow: visible; height: auto; }
 /* Extra gap between title and CTA button */
 .c3-slide-inner .btn { margin-top: 16px; }
 
-/* Single-line titles on desktop — hide forced line breaks */
+/* Single-line titles on desktop */
 @media (min-width: 769px) {
   .c3-slide-title br { display: none; }
+  .c3-slide-title { white-space: nowrap; }
 }
 
 /* Slide 3 is darker — use white text */
