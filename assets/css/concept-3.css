@@ -82,6 +82,11 @@ html.concept-3 body { overflow: visible; height: auto; }
 /* Extra gap between title and CTA button */
 .c3-slide-inner .btn { margin-top: 16px; }
 
+/* Single-line titles on desktop — hide forced line breaks */
+@media (min-width: 769px) {
+  .c3-slide-title br { display: none; }
+}
+
 /* Slide 3 is darker — use white text */
 .c3-slide--3 .c3-slide-eyebrow,
 .c3-slide--3 .c3-slide-title { color: var(--white); opacity: 1; }
