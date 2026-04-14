@@ -31,7 +31,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 
 .c3-slides {
   position: relative;
-  height: 440px;
+  height: 500px;
 }
 
 .c3-slide {
@@ -441,7 +441,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   }
 
   /* ── Hero carousel mobile ─────────────────────────────────── */
-  .c3-slides { height: 92vw; min-height: 360px; }
+  .c3-slides { height: 400px; }
   .c3-slide-inner { width: calc(100% - 48px); } /* 24px gutter each side */
   .c3-slide-title  { font-size: 28px; white-space: nowrap; }
   .c3-slide-title br { display: none; }
