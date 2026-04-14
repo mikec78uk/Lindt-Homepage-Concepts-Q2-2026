@@ -133,6 +133,37 @@
   });
 
   /* ──────────────────────────────────────────────────────────
+     PAUSE WHILE USER INTERACTS WITH PRODUCT CAROUSEL
+     Stops the auto-advance timer when the user touches or
+     scrolls the products grid, resumes 2 s after they stop.
+     ────────────────────────────────────────────────────────── */
+  const productsSection = document.querySelector('.c3-products');
+  if (productsSection) {
+    let resumeTimeout = null;
+
+    function onProductInteractionStart() {
+      stopTimer();
+      if (resumeTimeout) { clearTimeout(resumeTimeout); resumeTimeout = null; }
+    }
+
+    function onProductInteractionEnd() {
+      if (resumeTimeout) clearTimeout(resumeTimeout);
+      resumeTimeout = setTimeout(function () {
+        if (!isPaused) startTimer();
+        resumeTimeout = null;
+      }, 2000);
+    }
+
+    productsSection.addEventListener('touchstart',  onProductInteractionStart, { passive: true });
+    productsSection.addEventListener('touchend',    onProductInteractionEnd,   { passive: true });
+    productsSection.addEventListener('touchcancel', onProductInteractionEnd,   { passive: true });
+
+    // Also handle mouse-driven scroll (desktop drag in horizontal scroll)
+    productsSection.addEventListener('mousedown', onProductInteractionStart);
+    document.addEventListener('mouseup', onProductInteractionEnd);
+  }
+
+  /* ──────────────────────────────────────────────────────────
      TOUCH / SWIPE on hero carousel
      ────────────────────────────────────────────────────────── */
   if (carousel) {
