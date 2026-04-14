@@ -55,7 +55,8 @@ html.concept-3 body { overflow: visible; height: auto; }
   flex-direction: column;
   gap: 14px;
   align-items: center;
-  max-width: 540px;
+  max-width: 720px;
+  width: 100%;
 }
 .c3-slide-eyebrow {
   font-size: 11px;
@@ -66,7 +67,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 }
 .c3-slide-title {
   font-family: var(--font-serif);
-  font-size: 52px;
+  font-size: 40px;
   font-weight: 400;
   line-height: 1.05;
   color: var(--black);
@@ -78,6 +79,9 @@ html.concept-3 body { overflow: visible; height: auto; }
   line-height: 1.6;
   max-width: 400px;
 }
+/* Extra gap between title and CTA button */
+.c3-slide-inner .btn { margin-top: 16px; }
+
 /* Slide 3 is darker — use white text */
 .c3-slide--3 .c3-slide-eyebrow,
 .c3-slide--3 .c3-slide-title { color: var(--white); opacity: 1; }
@@ -432,7 +436,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   /* ── Hero carousel mobile ─────────────────────────────────── */
   .c3-slides { height: 92vw; min-height: 360px; }
   .c3-slide  { padding: 28px 24px; }
-  .c3-slide-title  { font-size: 34px; }
+  .c3-slide-title  { font-size: 28px; }
   .c3-slide-eyebrow { font-size: 10px; }
   .c3-slide-sub { font-size: 13px; }
   .c3-arrow { width: 30px; height: 30px; font-size: 20px; }
