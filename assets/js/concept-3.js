@@ -111,6 +111,7 @@
       stopTimer();
       if (pauseBtn) { pauseBtn.setAttribute('aria-label', 'Play slideshow');  pauseBtn.innerHTML = ICON_PLAY;  }
     } else {
+      goTo(current + 1); // advance immediately on resume
       startTimer();
       if (pauseBtn) { pauseBtn.setAttribute('aria-label', 'Pause slideshow'); pauseBtn.innerHTML = ICON_PAUSE; }
     }
