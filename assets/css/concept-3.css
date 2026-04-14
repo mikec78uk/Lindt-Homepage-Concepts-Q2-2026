@@ -41,7 +41,9 @@ html.concept-3 body { overflow: visible; height: auto; }
   transition: opacity 0.65s ease;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 52px 60px;
+  text-align: center;
 }
 .c3-slide--active { opacity: 1; }
 .c3-slide--1 { background: #E7EAEE; }
@@ -52,7 +54,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   display: flex;
   flex-direction: column;
   gap: 14px;
-  align-items: flex-start;
+  align-items: center;
   max-width: 540px;
 }
 .c3-slide-eyebrow {
