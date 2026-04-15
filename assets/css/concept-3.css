@@ -429,6 +429,9 @@ html.concept-3 body { overflow: visible; height: auto; }
      if the page is loaded at desktop width and then resized */
   .mobile-search-bar { top: 86px; }
 
+  /* Hide search icon in mobile header — search bar is always visible */
+  .concept-3 .header-icons.mobile-only button[aria-label="Search"] { display: none !important; }
+
   html.concept-3 { overflow: auto; height: auto; overscroll-behavior-y: none; }
   html.concept-3 body { overflow: visible; height: auto; overscroll-behavior-y: none; }
 
