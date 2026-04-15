@@ -170,6 +170,23 @@
   }
 
   /* ──────────────────────────────────────────────────────────
+     MOBILE SEARCH BAR — position below header
+     main.js only runs this when isMobile() is true at load time,
+     so on a desktop browser resized to mobile width it never fires.
+     This handler covers that case.
+     ────────────────────────────────────────────────────────── */
+  function syncMobileSearch() {
+    const search = document.getElementById('mobile-search');
+    const header = document.getElementById('site-header');
+    if (!search || !header) return;
+    if (window.innerWidth <= 768) {
+      search.style.top = header.offsetHeight + 'px';
+    }
+  }
+  syncMobileSearch();
+  window.addEventListener('resize', syncMobileSearch, { passive: true });
+
+  /* ──────────────────────────────────────────────────────────
      INIT
      ────────────────────────────────────────────────────────── */
   goTo(0);
