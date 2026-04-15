@@ -18,6 +18,12 @@ html.concept-3 body { overflow: visible; height: auto; }
 /* Hide snap-based dot nav */
 .concept-3 .dot-nav { display: none !important; }
 
+/* Desktop: non-sticky header */
+@media (min-width: 769px) {
+  html.concept-3 .site-header { position: relative; }
+  html.concept-3 .site-main   { padding-top: 0; }
+}
+
 /* ── C3: Hero Carousel ───────────────────────────────────────── */
 .c3-hero-products {
   background: var(--white);
