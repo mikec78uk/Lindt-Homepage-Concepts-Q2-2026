@@ -175,16 +175,14 @@
      so on a desktop browser resized to mobile width it never fires.
      This handler covers that case.
      ────────────────────────────────────────────────────────── */
-  function syncMobileSearch() {
+  /* Run once on load only — no resize listener to avoid fighting
+     with main.js's scroll-based header hide/show logic */
+  (function syncMobileSearch() {
     const search = document.getElementById('mobile-search');
     const header = document.getElementById('site-header');
-    if (!search || !header) return;
-    if (window.innerWidth <= 768) {
-      search.style.top = header.offsetHeight + 'px';
-    }
-  }
-  syncMobileSearch();
-  window.addEventListener('resize', syncMobileSearch, { passive: true });
+    if (!search || !header || window.innerWidth > 768) return;
+    search.style.top = header.offsetHeight + 'px';
+  })();
 
   /* ──────────────────────────────────────────────────────────
      INIT
