@@ -170,19 +170,48 @@
   }
 
   /* ──────────────────────────────────────────────────────────
-     MOBILE SEARCH BAR — position below header
-     main.js only runs this when isMobile() is true at load time,
-     so on a desktop browser resized to mobile width it never fires.
-     This handler covers that case.
+     MOBILE HEADER + SEARCH SCROLL BEHAVIOUR
+     main.js gates everything inside if (isMobile()) which is
+     evaluated once at load time. If the viewport settles to
+     mobile AFTER that check (first visit, DevTools emulation,
+     etc.) the scroll listeners never attach. This block covers
+     concept-3 for all those cases.
      ────────────────────────────────────────────────────────── */
-  /* Run once on load only — no resize listener to avoid fighting
-     with main.js's scroll-based header hide/show logic */
-  (function syncMobileSearch() {
-    const search = document.getElementById('mobile-search');
-    const header = document.getElementById('site-header');
-    if (!search || !header || window.innerWidth > 768) return;
-    search.style.top = header.offsetHeight + 'px';
-  })();
+  var _mobileScrollReady = false;
+
+  function initMobileScroll() {
+    if (_mobileScrollReady || window.innerWidth > 768) return;
+    _mobileScrollReady = true;
+
+    var hdr = document.getElementById('site-header');
+    var srch = document.getElementById('mobile-search');
+
+    function posSearch(visible) {
+      if (!srch) return;
+      srch.style.top = visible ? (hdr ? hdr.offsetHeight : 0) + 'px' : '0px';
+    }
+    posSearch(true);
+
+    var lastSc = 0;
+    window.addEventListener('scroll', function () {
+      var cur = window.scrollY;
+      if (cur < 60) {
+        document.body.classList.remove('header-hidden');
+        posSearch(true);
+      } else if (cur > lastSc + 8) {
+        document.body.classList.add('header-hidden');
+        posSearch(false);
+      } else if (cur < lastSc - 8) {
+        document.body.classList.remove('header-hidden');
+        posSearch(true);
+      }
+      lastSc = cur;
+    }, { passive: true });
+  }
+
+  initMobileScroll();
+  /* Also catch the case where the user resizes into mobile width */
+  window.addEventListener('resize', initMobileScroll, { passive: true });
 
   /* ──────────────────────────────────────────────────────────
      INIT
