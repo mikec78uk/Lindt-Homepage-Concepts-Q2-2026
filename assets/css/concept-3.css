@@ -182,6 +182,13 @@ html.concept-3 body { overflow: visible; height: auto; }
 .c3-product-groups {
   display: grid;
 }
+
+/* Slide 3 has no associated products — hide the whole block so the
+   page reflows up. To restore, remove index 2 from SLIDES_NO_PRODUCTS
+   in concept-3.js and this rule becomes inactive automatically. */
+.c3-product-groups.c3-products-hidden {
+  display: none;
+}
 .c3-product-group {
   grid-area: 1 / 1;
   min-width: 0; /* prevents grid item expanding beyond container */

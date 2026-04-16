@@ -14,14 +14,19 @@
   /* ──────────────────────────────────────────────────────────
      REFERENCES
      ────────────────────────────────────────────────────────── */
-  const carousel      = document.getElementById('c3-carousel');
-  const slides        = [...document.querySelectorAll('.c3-slide')];
-  const dots          = [...document.querySelectorAll('.c3-dot')];
-  const prevBtn       = document.querySelector('.c3-prev');
-  const nextBtn       = document.querySelector('.c3-next');
-  const pauseBtn      = document.querySelector('.c3-pause');
-  const productGroups = [...document.querySelectorAll('.c3-product-group')];
-  const tabs          = [...document.querySelectorAll('[data-c3-tab]')];
+  const carousel         = document.getElementById('c3-carousel');
+  const slides           = [...document.querySelectorAll('.c3-slide')];
+  const dots             = [...document.querySelectorAll('.c3-dot')];
+  const prevBtn          = document.querySelector('.c3-prev');
+  const nextBtn          = document.querySelector('.c3-next');
+  const pauseBtn         = document.querySelector('.c3-pause');
+  const productGroups    = [...document.querySelectorAll('.c3-product-group')];
+  const productGroupsWrap = document.querySelector('.c3-product-groups');
+  const tabs             = [...document.querySelectorAll('[data-c3-tab]')];
+
+  // Slide indices whose product group should be hidden (page reflows)
+  // Remove the index to restore the product group for that slide
+  const SLIDES_NO_PRODUCTS = [2];
 
   if (!slides.length) return;
 
@@ -62,6 +67,15 @@
         carousel.classList.add('c3-dark-controls');
       } else {
         carousel.classList.remove('c3-dark-controls');
+      }
+    }
+
+    // Hide product groups for slides that don't need them (page reflows up)
+    if (productGroupsWrap) {
+      if (SLIDES_NO_PRODUCTS.includes(current)) {
+        productGroupsWrap.classList.add('c3-products-hidden');
+      } else {
+        productGroupsWrap.classList.remove('c3-products-hidden');
       }
     }
   }
