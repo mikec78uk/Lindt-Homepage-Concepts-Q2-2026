@@ -210,6 +210,20 @@ html.concept-3 body { overflow: visible; height: auto; }
 /* 5-column product grid to show all 5 cards in one row */
 .concept-3 .products-grid { grid-template-columns: repeat(5, 1fr); }
 
+/* ── C3: Lindt Recommends ───────────────────────────────────── */
+.c3-recommends {
+  padding: 64px 52px 56px;
+  border-top: 1px solid var(--border);
+}
+.c3-recommends .section-title { margin-bottom: 0; }
+.c3-recommends .products-cta  { text-align: center; margin-top: 32px; }
+
+@media (max-width: 768px) {
+  .c3-recommends {
+    padding: 48px 20px 40px;
+  }
+}
+
 /* ── C3: Category roundels ─────────────────────────────────── */
 .c3-categories {
   background: var(--gray-100);
