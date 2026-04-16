@@ -157,7 +157,6 @@ html.concept-3 body { overflow: visible; height: auto; }
   flex-shrink: 0;
 }
 .c3-pause { font-size: 13px; }
-.c3-arrow { font-size: 22px; }
 .c3-pause:hover,
 .c3-arrow:hover { background: rgba(0,0,0,0.62); }
 
