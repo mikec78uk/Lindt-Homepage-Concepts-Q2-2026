@@ -14,19 +14,13 @@
   /* ──────────────────────────────────────────────────────────
      REFERENCES
      ────────────────────────────────────────────────────────── */
-  const carousel         = document.getElementById('c3-carousel');
-  const slides           = [...document.querySelectorAll('.c3-slide')];
-  const dots             = [...document.querySelectorAll('.c3-dot')];
-  const prevBtn          = document.querySelector('.c3-prev');
-  const nextBtn          = document.querySelector('.c3-next');
-  const pauseBtn         = document.querySelector('.c3-pause');
-  const productGroups    = [...document.querySelectorAll('.c3-product-group')];
-  const productGroupsWrap = document.querySelector('.c3-products');
-  const tabs             = [...document.querySelectorAll('[data-c3-tab]')];
-
-  // Slide indices whose product group should be hidden (page reflows).
-  // Remove indices to restore products for individual slides.
-  const SLIDES_NO_PRODUCTS = [0, 1, 2];
+  const carousel      = document.getElementById('c3-carousel');
+  const slides        = [...document.querySelectorAll('.c3-slide')];
+  const dots          = [...document.querySelectorAll('.c3-dot')];
+  const prevBtn       = document.querySelector('.c3-prev');
+  const nextBtn       = document.querySelector('.c3-next');
+  const pauseBtn      = document.querySelector('.c3-pause');
+  const tabs          = [...document.querySelectorAll('[data-c3-tab]')];
 
   if (!slides.length) return;
 
@@ -52,10 +46,6 @@
     dots[prev].classList.remove('c3-dot--active');
     dots[current].classList.add('c3-dot--active');
 
-    // Product groups
-    if (productGroups[prev]) productGroups[prev].classList.remove('c3-product-group--active');
-    if (productGroups[current]) productGroups[current].classList.add('c3-product-group--active');
-
     // Tabs — sync active state
     tabs.forEach(t => t.classList.remove('tab--active'));
     const activeTab = tabs[current];
@@ -70,14 +60,6 @@
       }
     }
 
-    // Hide product groups for slides that don't need them (page reflows up)
-    if (productGroupsWrap) {
-      if (SLIDES_NO_PRODUCTS.includes(current)) {
-        productGroupsWrap.classList.add('c3-products-hidden');
-      } else {
-        productGroupsWrap.classList.remove('c3-products-hidden');
-      }
-    }
   }
 
   /* ──────────────────────────────────────────────────────────
