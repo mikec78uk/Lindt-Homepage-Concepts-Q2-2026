@@ -225,6 +225,9 @@ html.concept-3 body { overflow: visible; height: auto; }
   background: var(--white);
   border: 1.5px solid var(--gold);
   color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .product-add--pdp:hover {
   background: var(--gold);
