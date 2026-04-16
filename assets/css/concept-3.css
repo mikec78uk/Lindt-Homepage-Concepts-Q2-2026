@@ -12,8 +12,10 @@
   }
   .c3-utility-usp {
     flex: 1;
+    min-width: 0; /* prevent flex blowout */
     position: relative;
     height: 28px;
+    overflow: hidden;
     /* Override .header-usp defaults */
     background: transparent;
     border: none;
@@ -23,6 +25,9 @@
     justify-content: flex-start;
     color: var(--white);
     opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .c3-utility-usp .usp-msg.usp-active {
     opacity: 0.8;
