@@ -644,16 +644,17 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-explore-tabs {
     justify-content: flex-start;
     overflow-x: auto;
+    overflow-y: hidden;
     scrollbar-width: none;
     gap: 0;
     scroll-behavior: smooth;
+    touch-action: pan-x;
   }
   .c3-explore-tabs::-webkit-scrollbar { display: none; }
-  .c3-explore-tab { scroll-snap-align: center; }
-  .c3-explore-tab { font-size: 16px; padding: 8px 16px 12px; }
+  .c3-explore-tab { scroll-snap-align: center; font-size: 16px; padding: 8px 16px 12px; }
   .c3-explore-tab--active { font-size: 24px; }
   /* Panel padding */
-  .c3-explore-panel { padding: 4px 20px 0; }
+  .c3-explore-panel { padding: 20px 20px 0; }
   /* Stack tiles vertically on mobile */
   .c3-mosaic {
     grid-template-columns: 1fr;
