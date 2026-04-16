@@ -226,9 +226,13 @@ html.concept-3 body { overflow: visible; height: auto; }
   grid-template-columns: 1fr 1fr;
   min-height: 520px;
   border-top: 1px solid var(--border);
+  padding: 52px 52px 52px 52px;
+  gap: 52px;
+  background: var(--white);
 }
 .c3-personal-img {
   background: #D9D9D9;
+  border-radius: 4px;
 }
 .c3-personal-body {
   display: flex;
@@ -628,9 +632,9 @@ html.concept-3 body { overflow: visible; height: auto; }
   }
 
   /* ── Personalised Gifts mobile: stacked ─────────────────────── */
-  .c3-personal { grid-template-columns: 1fr; min-height: 0; }
-  .c3-personal-img { height: 260px; }
-  .c3-personal-body { padding: 40px 20px; gap: 16px; }
+  .c3-personal { grid-template-columns: 1fr; min-height: 0; padding: 32px 20px; gap: 0; }
+  .c3-personal-img { height: 260px; border-radius: 4px; }
+  .c3-personal-body { padding: 32px 0 0; gap: 16px; }
   .c3-personal-title { font-size: 32px; }
   .c3-personal-text { max-width: 100%; }
 
