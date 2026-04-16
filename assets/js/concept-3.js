@@ -233,6 +233,18 @@
   window.addEventListener('resize', initMobileScroll, { passive: true });
 
   /* ──────────────────────────────────────────────────────────
+     NEWSLETTER FLOAT — dismiss on X click
+     ────────────────────────────────────────────────────────── */
+  var newsletterClose = document.getElementById('c3-newsletter-close');
+  var newsletterFloat = document.getElementById('c3-newsletter-float');
+  if (newsletterClose && newsletterFloat) {
+    newsletterClose.addEventListener('click', function (e) {
+      e.stopPropagation();
+      newsletterFloat.classList.add('c3-newsletter-hidden');
+    });
+  }
+
+  /* ──────────────────────────────────────────────────────────
      INIT
      ────────────────────────────────────────────────────────── */
   goTo(0);

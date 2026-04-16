@@ -606,3 +606,102 @@ html.concept-3 body { overflow: visible; height: auto; }
     transition-delay: 0ms !important;
   }
 }
+
+/* ── C3: Newsletter floating prompt ──────────────────────────── */
+.c3-newsletter-float {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #111;
+  border-radius: 50px;
+  padding: 10px 20px 10px 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.c3-newsletter-float.c3-newsletter-hidden {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+/* Close button — small circle in top-right corner */
+.c3-newsletter-close {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #444;
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.2s;
+  z-index: 1;
+}
+
+.c3-newsletter-close:hover { background: #666; }
+
+/* Mail icon circle */
+.c3-newsletter-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ccc;
+}
+
+/* Text block */
+.c3-newsletter-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.c3-newsletter-text strong {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.c3-newsletter-text span {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  color: #aaa;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Mobile: slightly smaller padding */
+@media (max-width: 768px) {
+  .c3-newsletter-float {
+    bottom: 20px;
+    left: 16px;
+    padding: 8px 16px 8px 8px;
+    gap: 10px;
+  }
+  .c3-newsletter-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
