@@ -334,7 +334,7 @@ html.concept-3 body { overflow: visible; height: auto; }
    Row 1: tile-1 wide (3fr), tile-2 narrow (2fr)
    Row 2: tile-3 narrow (2fr), tile-4 wide (3fr)          */
 .c3-explore-panel {
-  padding: 6px 52px 0;
+  padding: 30px 52px 0;
 }
 .c3-mosaic {
   display: grid;
