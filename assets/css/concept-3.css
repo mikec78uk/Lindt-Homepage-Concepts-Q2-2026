@@ -646,8 +646,10 @@ html.concept-3 body { overflow: visible; height: auto; }
     overflow-x: auto;
     scrollbar-width: none;
     gap: 0;
+    scroll-behavior: smooth;
   }
   .c3-explore-tabs::-webkit-scrollbar { display: none; }
+  .c3-explore-tab { scroll-snap-align: center; }
   .c3-explore-tab { font-size: 16px; padding: 8px 16px 12px; }
   .c3-explore-tab--active { font-size: 24px; }
   /* Panel padding */

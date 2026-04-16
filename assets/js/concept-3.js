@@ -202,6 +202,16 @@
      ────────────────────────────────────────────────────────── */
   var exploreTabs   = [...document.querySelectorAll('.c3-explore-tab')];
   var explorePanels = [...document.querySelectorAll('.c3-explore-panel')];
+  var exploreNav    = document.querySelector('.c3-explore-tabs');
+
+  function centreTab(tab) {
+    if (!exploreNav || window.innerWidth > 768) return;
+    var navW  = exploreNav.offsetWidth;
+    var tabL  = tab.offsetLeft;
+    var tabW  = tab.offsetWidth;
+    exploreNav.scrollLeft = tabL - (navW / 2) + (tabW / 2);
+  }
+
   exploreTabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
       var idx = parseInt(tab.dataset.exploreTab, 10);
@@ -213,8 +223,13 @@
       tab.classList.add('c3-explore-tab--active');
       tab.setAttribute('aria-selected', 'true');
       if (explorePanels[idx]) explorePanels[idx].classList.add('c3-explore-panel--active');
+      centreTab(tab);
     });
   });
+
+  // Centre the initially active tab on mobile load
+  var initialActive = document.querySelector('.c3-explore-tab--active');
+  if (initialActive) centreTab(initialActive);
 
   /* ──────────────────────────────────────────────────────────
      NEWSLETTER FLOAT — dismiss on X click
