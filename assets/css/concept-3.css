@@ -321,7 +321,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 }
 .c3-explore-tab--active::after { opacity: 1; }
 .c3-explore-tab--disabled {
-  font-size: 18px;
+  font-size: 22px;
   color: #d0d0d0;
   cursor: default;
   pointer-events: none;
