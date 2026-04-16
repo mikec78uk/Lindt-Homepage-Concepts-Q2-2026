@@ -82,44 +82,18 @@
      CONTROLS
      ────────────────────────────────────────────────────────── */
   if (prevBtn) {
-    prevBtn.addEventListener('click', function () {
-      goTo(current - 1);
-      if (!isPaused) startTimer();
-    });
+    prevBtn.addEventListener('click', function () { goTo(current - 1); });
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener('click', function () {
-      goTo(current + 1);
-      if (!isPaused) startTimer();
-    });
+    nextBtn.addEventListener('click', function () { goTo(current + 1); });
   }
 
   dots.forEach(function (dot, i) {
-    dot.addEventListener('click', function () {
-      goTo(i);
-      if (!isPaused) startTimer();
-    });
+    dot.addEventListener('click', function () { goTo(i); });
   });
 
-  const ICON_PAUSE = '<svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><rect x="4" y="3" width="4" height="18"/><rect x="16" y="3" width="4" height="18"/></svg>';
-  const ICON_PLAY  = '<svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>';
-
-  function setPaused(state) {
-    isPaused = state;
-    if (isPaused) {
-      stopTimer();
-      if (pauseBtn) { pauseBtn.setAttribute('aria-label', 'Play slideshow');  pauseBtn.innerHTML = ICON_PLAY;  }
-    } else {
-      goTo(current + 1); // advance immediately on resume
-      startTimer();
-      if (pauseBtn) { pauseBtn.setAttribute('aria-label', 'Pause slideshow'); pauseBtn.innerHTML = ICON_PAUSE; }
-    }
-  }
-
-  if (pauseBtn) {
-    pauseBtn.addEventListener('click', function () { setPaused(!isPaused); });
-  }
+  // Pause button hidden via CSS — auto-play is disabled
 
   /* ──────────────────────────────────────────────────────────
      TABS → also change banner slide
@@ -129,28 +103,9 @@
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
       var idx = parseInt(tab.dataset.c3Tab, 10);
-      if (!isNaN(idx)) {
-        goTo(idx);
-        if (!isPaused) startTimer();
-      }
+      if (!isNaN(idx)) { goTo(idx); }
     });
   });
-
-  /* ──────────────────────────────────────────────────────────
-     PAUSE WHEN USER INTERACTS WITH PRODUCT CAROUSEL
-     Sets isPaused=true (shows play icon) on first touch/click.
-     Auto-advance only resumes when the user explicitly clicks
-     the play button.
-     ────────────────────────────────────────────────────────── */
-  const productsSection = document.querySelector('.c3-products');
-  if (productsSection) {
-    function onProductInteractionStart() {
-      if (!isPaused) setPaused(true);
-    }
-
-    productsSection.addEventListener('touchstart', onProductInteractionStart, { passive: true });
-    productsSection.addEventListener('mousedown',  onProductInteractionStart);
-  }
 
   /* ──────────────────────────────────────────────────────────
      TOUCH / SWIPE on hero carousel
@@ -164,7 +119,6 @@
       var diff = touchStartX - e.changedTouches[0].clientX;
       if (Math.abs(diff) > 50) {
         goTo(diff > 0 ? current + 1 : current - 1);
-        if (!isPaused) startTimer();
       }
     }, { passive: true });
   }
@@ -248,6 +202,5 @@
      INIT
      ────────────────────────────────────────────────────────── */
   goTo(0);
-  startTimer();
 
 })();
