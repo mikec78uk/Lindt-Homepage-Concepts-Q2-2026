@@ -198,6 +198,25 @@
   window.addEventListener('resize', initMobileScroll, { passive: true });
 
   /* ──────────────────────────────────────────────────────────
+     EXPLORE LINDT — tab switching
+     ────────────────────────────────────────────────────────── */
+  var exploreTabs   = [...document.querySelectorAll('.c3-explore-tab')];
+  var explorePanels = [...document.querySelectorAll('.c3-explore-panel')];
+  exploreTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var idx = parseInt(tab.dataset.exploreTab, 10);
+      exploreTabs.forEach(function (t) {
+        t.classList.remove('c3-explore-tab--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      explorePanels.forEach(function (p) { p.classList.remove('c3-explore-panel--active'); });
+      tab.classList.add('c3-explore-tab--active');
+      tab.setAttribute('aria-selected', 'true');
+      if (explorePanels[idx]) explorePanels[idx].classList.add('c3-explore-panel--active');
+    });
+  });
+
+  /* ──────────────────────────────────────────────────────────
      NEWSLETTER FLOAT — dismiss on X click
      ────────────────────────────────────────────────────────── */
   var newsletterClose = document.getElementById('c3-newsletter-close');

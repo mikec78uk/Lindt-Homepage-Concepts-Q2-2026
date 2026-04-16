@@ -220,65 +220,156 @@ html.concept-3 body { overflow: visible; height: auto; }
   border-top: 1px solid var(--border);
 }
 
-.c3-blocks-grid {
+/* ── C3: Personalised Gifts — split image + text ─────────────── */
+.c3-personal {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  min-height: 520px;
+  border-top: 1px solid var(--border);
 }
-
-.c3-block {
+.c3-personal-img {
+  background: #D9D9D9;
+}
+.c3-personal-body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding: 64px 72px;
+  gap: 20px;
 }
-
-.c3-block-img {
-  width: 100%;
-  aspect-ratio: 4/3;
-}
-/* Distinct grey shades per block */
-.c3-block:nth-child(1) .c3-block-img { background: #E7EAEE; }
-.c3-block:nth-child(2) .c3-block-img { background: #D9D9D9; }
-.c3-block:nth-child(3) .c3-block-img { background: #C8C5C0; }
-.c3-block:nth-child(4) .c3-block-img { background: #8B919A; }
-
-.c3-block-body {
-  padding: 24px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1;
-}
-.c3-block-title {
-  font-family: var(--font-serif);
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1.2;
-  color: var(--black);
-}
-.c3-block-text {
-  font-size: 13px;
-  color: #777;
-  line-height: 1.7;
-  flex: 1;
-}
-.c3-block-link {
-  display: inline-block;
-  align-self: flex-start;
-  margin-top: 8px;
-  padding: 12px 24px;
+.c3-personal-label {
+  font-family: var(--font-sans);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-weight: 600;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--gold);
-  text-decoration: none;
-  border: 1px solid var(--gold);
-  transition: background 0.2s, color 0.2s;
 }
-.c3-block-link:hover {
-  background: var(--gold);
+.c3-personal-title {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--black);
+}
+.c3-personal-text {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+/* ── C3: Explore Lindt — tabbed mosaic ───────────────────────── */
+.c3-explore {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+.c3-explore-header {
+  padding: 52px 52px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.c3-explore-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+}
+.c3-explore-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+  justify-content: center;
+  margin-top: 4px;
+}
+.c3-explore-tab {
+  background: none;
+  border: none;
+  padding: 14px 32px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--gray-600);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.c3-explore-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--black);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.c3-explore-tab--active { color: var(--black); font-weight: 600; }
+.c3-explore-tab--active::after { opacity: 1; }
+
+.c3-explore-panel { display: none; }
+.c3-explore-panel--active { display: block; }
+
+/* 2×2 mosaic grid */
+.c3-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-top: 4px;
+}
+.c3-mosaic-tile {
+  position: relative;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  cursor: pointer;
+}
+/* Most Popular tile shades */
+.c3-mosaic-tile--1 { background: #E7EAEE; }
+.c3-mosaic-tile--2 { background: #D4D0CB; }
+.c3-mosaic-tile--3 { background: #BFC0C4; }
+.c3-mosaic-tile--4 { background: #8B919A; }
+/* MyLindt Rewards — warmer tones */
+.c3-mosaic--rewards .c3-mosaic-tile--1 { background: #E2DDD7; }
+.c3-mosaic--rewards .c3-mosaic-tile--2 { background: #CBCAC8; }
+.c3-mosaic--rewards .c3-mosaic-tile--3 { background: #A8A49E; }
+.c3-mosaic--rewards .c3-mosaic-tile--4 { background: #8B8880; }
+
+.c3-mosaic-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px 28px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.45));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+.c3-mosaic-overlay h3 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 400;
   color: var(--white);
+  line-height: 1.2;
 }
+.c3-mosaic-overlay a {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  padding: 9px 18px;
+  border: 1px solid rgba(255,255,255,0.7);
+  transition: background 0.2s;
+}
+.c3-mosaic-overlay a:hover { background: rgba(255,255,255,0.2); }
 
 /* ── C3: Evergreen Topics (no images) ─────────────────────── */
 .c3-evergreen {
@@ -501,9 +592,28 @@ html.concept-3 body { overflow: visible; height: auto; }
     scroll-snap-align: start;
   }
 
-  /* ── Content Blocks mobile: stacked ─────────────────────────── */
-  .c3-content { padding: 48px 20px; }
-  .c3-blocks-grid { grid-template-columns: 1fr; gap: 24px; }
+  /* ── Personalised Gifts mobile: stacked ─────────────────────── */
+  .c3-personal { grid-template-columns: 1fr; min-height: 0; }
+  .c3-personal-img { height: 260px; }
+  .c3-personal-body { padding: 40px 20px; gap: 16px; }
+  .c3-personal-title { font-size: 32px; }
+  .c3-personal-text { max-width: 100%; }
+
+  /* ── Explore Lindt mobile ────────────────────────────────────── */
+  .c3-explore-header { padding: 40px 20px 0; align-items: flex-start; }
+  .c3-explore-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .c3-explore-tabs::-webkit-scrollbar { display: none; }
+  .c3-explore-tab { padding: 12px 20px; font-size: 14px; }
+  .c3-mosaic {
+    grid-template-columns: 1fr;
+    gap: 3px;
+    margin-top: 3px;
+  }
+  .c3-mosaic-tile { aspect-ratio: 16/9; }
 
   /* ── Evergreen mobile: horizontal scroll ───────────────────── */
   .c3-evergreen { padding: 48px 0; }
