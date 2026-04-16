@@ -220,6 +220,17 @@ html.concept-3 body { overflow: visible; height: auto; }
   border-top: 1px solid var(--border);
 }
 
+/* PDP-style button: white circle with gold outline + chevron */
+.product-add--pdp {
+  background: var(--white);
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+}
+.product-add--pdp:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
 /* ── C3: Personalised Gifts — split image + text ─────────────── */
 .c3-personal {
   display: grid;
