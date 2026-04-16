@@ -93,7 +93,22 @@
     dot.addEventListener('click', function () { goTo(i); });
   });
 
-  // Pause button hidden via CSS — auto-play is disabled
+  /* Pause/play button — toggles video-background playback state */
+  const ICON_PAUSE = '<svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><rect x="4" y="3" width="4" height="18"/><rect x="16" y="3" width="4" height="18"/></svg>';
+  const ICON_PLAY  = '<svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>';
+
+  if (pauseBtn) {
+    pauseBtn.addEventListener('click', function () {
+      isPaused = !isPaused;
+      if (isPaused) {
+        pauseBtn.setAttribute('aria-label', 'Play video');
+        pauseBtn.innerHTML = ICON_PLAY;
+      } else {
+        pauseBtn.setAttribute('aria-label', 'Pause video');
+        pauseBtn.innerHTML = ICON_PAUSE;
+      }
+    });
+  }
 
   /* ──────────────────────────────────────────────────────────
      TABS → also change banner slide

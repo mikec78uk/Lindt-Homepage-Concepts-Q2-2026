@@ -160,7 +160,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   padding: 0;
   flex-shrink: 0;
 }
-.c3-pause { font-size: 13px; display: none; }
+.c3-pause { font-size: 13px; }
 .c3-pause:hover,
 .c3-arrow:hover { background: rgba(0,0,0,0.62); }
 
