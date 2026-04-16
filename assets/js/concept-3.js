@@ -24,9 +24,9 @@
   const productGroupsWrap = document.querySelector('.c3-products');
   const tabs             = [...document.querySelectorAll('[data-c3-tab]')];
 
-  // Slide indices whose product group should be hidden (page reflows)
-  // Remove the index to restore the product group for that slide
-  const SLIDES_NO_PRODUCTS = [2];
+  // Slide indices whose product group should be hidden (page reflows).
+  // Remove indices to restore products for individual slides.
+  const SLIDES_NO_PRODUCTS = [0, 1, 2];
 
   if (!slides.length) return;
 
