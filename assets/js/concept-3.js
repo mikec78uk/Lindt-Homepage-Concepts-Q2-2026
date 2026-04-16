@@ -21,7 +21,7 @@
   const nextBtn          = document.querySelector('.c3-next');
   const pauseBtn         = document.querySelector('.c3-pause');
   const productGroups    = [...document.querySelectorAll('.c3-product-group')];
-  const productGroupsWrap = document.querySelector('.c3-product-groups');
+  const productGroupsWrap = document.querySelector('.c3-products');
   const tabs             = [...document.querySelectorAll('[data-c3-tab]')];
 
   // Slide indices whose product group should be hidden (page reflows)

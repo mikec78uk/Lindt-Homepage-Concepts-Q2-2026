@@ -183,10 +183,11 @@ html.concept-3 body { overflow: visible; height: auto; }
   display: grid;
 }
 
-/* Slide 3 has no associated products — hide the whole block so the
-   page reflows up. To restore, remove index 2 from SLIDES_NO_PRODUCTS
-   in concept-3.js and this rule becomes inactive automatically. */
-.c3-product-groups.c3-products-hidden {
+/* Slide 3 has no associated products — hide products, CTA row, and
+   arrows so the page reflows up. To restore, remove index 2 from
+   SLIDES_NO_PRODUCTS in concept-3.js and these rules become inactive. */
+.c3-products.c3-products-hidden .c3-product-groups,
+.c3-products.c3-products-hidden .c3-products-cta-row {
   display: none;
 }
 .c3-product-group {
