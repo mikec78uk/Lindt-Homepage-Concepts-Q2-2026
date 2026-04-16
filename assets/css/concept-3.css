@@ -279,6 +279,9 @@ html.concept-3 body { overflow: visible; height: auto; }
   line-height: 1.7;
   max-width: 420px;
 }
+@media (min-width: 769px) {
+  .c3-personal-body .btn { align-self: flex-start; }
+}
 
 /* ── C3: Explore Lindt — tabbed mosaic ───────────────────────── */
 .c3-explore {
