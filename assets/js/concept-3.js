@@ -170,6 +170,25 @@
   }
 
   /* ──────────────────────────────────────────────────────────
+     DESKTOP HEADER — hide on scroll-down, reveal on scroll-up
+     ────────────────────────────────────────────────────────── */
+  (function initDesktopScroll() {
+    if (window.innerWidth <= 768) return;
+    var lastY = 0;
+    window.addEventListener('scroll', function () {
+      var cur = window.scrollY;
+      if (cur < 80) {
+        document.body.classList.remove('header-hidden');
+      } else if (cur > lastY + 8) {
+        document.body.classList.add('header-hidden');
+      } else if (cur < lastY - 8) {
+        document.body.classList.remove('header-hidden');
+      }
+      lastY = cur;
+    }, { passive: true });
+  })();
+
+  /* ──────────────────────────────────────────────────────────
      MOBILE HEADER + SEARCH SCROLL BEHAVIOUR
      main.js gates everything inside if (isMobile()) which is
      evaluated once at load time. If the viewport settles to
