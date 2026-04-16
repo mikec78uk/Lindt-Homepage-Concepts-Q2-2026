@@ -234,6 +234,9 @@ html.concept-3 body { overflow: visible; height: auto; }
   background: #D9D9D9;
   border-radius: 4px;
 }
+/* Second instance: image on the right */
+.c3-personal--alt { direction: rtl; }
+.c3-personal--alt > * { direction: ltr; }
 .c3-personal-body {
   display: flex;
   flex-direction: column;
