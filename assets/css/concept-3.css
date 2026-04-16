@@ -320,6 +320,12 @@ html.concept-3 body { overflow: visible; height: auto; }
   color: var(--black);
 }
 .c3-explore-tab--active::after { opacity: 1; }
+.c3-explore-tab--disabled {
+  font-size: 18px;
+  color: #d0d0d0;
+  cursor: default;
+  pointer-events: none;
+}
 
 .c3-explore-panel { display: none; }
 .c3-explore-panel--active { display: block; }
