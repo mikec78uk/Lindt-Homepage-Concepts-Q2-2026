@@ -129,7 +129,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   background: rgba(255,255,255,0.95);
 }
 
-/* ── Bottom-right: pause + arrows pill ─────────────────────── */
+/* ── Bottom-right: pause + arrows (separate circles) ────────── */
 .c3-controls-pill {
   position: absolute;
   bottom: 20px;
@@ -137,16 +137,15 @@ html.concept-3 body { overflow: visible; height: auto; }
   z-index: 10;
   display: flex;
   align-items: center;
-  gap: 0;
-  background: rgba(0,0,0,0.42);
-  border-radius: 20px;
-  padding: 6px 8px;
+  gap: 8px;
+  background: transparent;
+  padding: 0;
 }
 .c3-pause,
 .c3-arrow {
-  width: 34px; height: 34px;
+  width: 38px; height: 38px;
   border-radius: 50%;
-  background: transparent;
+  background: rgba(0,0,0,0.42);
   border: none;
   color: var(--white);
   display: flex;
@@ -160,13 +159,12 @@ html.concept-3 body { overflow: visible; height: auto; }
 .c3-pause { font-size: 13px; }
 .c3-arrow { font-size: 22px; }
 .c3-pause:hover,
-.c3-arrow:hover { background: rgba(255,255,255,0.15); }
+.c3-arrow:hover { background: rgba(0,0,0,0.62); }
 
-/* Dark-slide variant: pills already dark on light/mid slides; keep consistent */
+/* Dark-slide variant: keep consistent */
 .c3-carousel.c3-dark-controls .c3-dots-pill   { background: rgba(0,0,0,0.42); }
 .c3-carousel.c3-dark-controls .c3-dot         { background: rgba(255,255,255,0.5); }
 .c3-carousel.c3-dark-controls .c3-dot--active { background: rgba(255,255,255,0.95); }
-.c3-carousel.c3-dark-controls .c3-controls-pill { background: rgba(0,0,0,0.42); }
 .c3-carousel.c3-dark-controls .c3-pause,
 .c3-carousel.c3-dark-controls .c3-arrow       { color: var(--white); }
 
@@ -486,10 +484,10 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-slide-title br { display: none; }
   .c3-slide-eyebrow { font-size: 10px; }
   .c3-slide-sub { font-size: 13px; }
-  .c3-arrow { width: 30px; height: 30px; font-size: 20px; }
-  .c3-pause { width: 30px; height: 30px; }
+  .c3-arrow { width: 32px; height: 32px; font-size: 20px; }
+  .c3-pause { width: 32px; height: 32px; }
   .c3-dots-pill  { bottom: 14px; left: 14px; padding: 6px 10px; gap: 6px; }
-  .c3-controls-pill { bottom: 14px; right: 14px; padding: 4px 6px; }
+  .c3-controls-pill { bottom: 14px; right: 14px; gap: 6px; }
 
   /* ── Products mobile ──────────────────────────────────────── */
   .c3-products { padding: 24px 0 32px; }
