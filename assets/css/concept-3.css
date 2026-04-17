@@ -450,6 +450,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 .c3-explore-tabs {
   display: flex;
   align-items: flex-end;
+  height: 60px;
   border-bottom: 1px solid var(--border);
   width: 100%;
   justify-content: center;
