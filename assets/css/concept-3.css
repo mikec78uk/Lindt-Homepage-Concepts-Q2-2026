@@ -232,6 +232,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   padding: 64px 52px 56px;
   border-top: 1px solid var(--border);
 }
+.c3-categories .c3-personal-label { display: block; text-align: center; margin-bottom: 10px; }
 .c3-categories .section-title { text-align: center; margin-bottom: 0; }
 .c3-categories .products-cta  { text-align: center; margin-top: 24px; }
 
@@ -255,6 +256,16 @@ html.concept-3 body { overflow: visible; height: auto; }
   background: var(--white);
   padding: 72px 52px;
   border-top: 1px solid var(--border);
+}
+
+/* Customise badge — bottom-left */
+.product-badge--customise {
+  top: auto;
+  bottom: 10px;
+  left: 10px;
+  background: var(--white);
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
 }
 
 /* PDP-style button: white circle with gold outline + chevron */
@@ -284,6 +295,99 @@ html.concept-3 body { overflow: visible; height: auto; }
 .c3-personal-img {
   background: #D9D9D9;
   border-radius: 4px;
+  position: relative;
+}
+
+/* Video controls overlay — bottom-left of image */
+.c3-video-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+.c3-vid-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.c3-vid-btn:hover { background: rgba(0, 0, 0, 0.65); }
+
+/* Volume wrapper — holds button + hover scale */
+.c3-vid-volume-wrap {
+  position: relative;
+}
+/* Transparent bridge so hover stays active between scale and button */
+.c3-vid-volume-wrap::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+/* Volume scale panel — appears above button on hover */
+.c3-vol-scale {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 12px 0;
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s;
+}
+.c3-vid-volume-wrap:hover .c3-vol-scale {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Track, fill & thumb */
+.c3-vol-track {
+  position: relative;
+  width: 4px;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.c3-vol-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  border-radius: 2px;
+  transition: height 0.1s;
+}
+.c3-vol-thumb {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--white);
+  transition: bottom 0.1s;
 }
 /* Second instance: image on the right */
 .c3-personal--alt { direction: rtl; }
@@ -305,7 +409,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 }
 .c3-personal-title {
   font-family: var(--font-serif);
-  font-size: 42px;
+  font-size: 34px;
   font-weight: 400;
   line-height: 1.1;
   color: var(--black);
@@ -388,8 +492,32 @@ html.concept-3 body { overflow: visible; height: auto; }
   pointer-events: none;
 }
 
-.c3-explore-panel { display: none; }
-.c3-explore-panel--active { display: block; }
+/* Panel stacking — fixed-height container, all panels always absolute.
+   Height = 2 rows × 560px + 1 gap × 6px + 30px panel padding-top       */
+.c3-explore-body {
+  position: relative;
+  height: calc(560px * 2 + 6px + 30px); /* 1156px */
+  overflow: hidden;
+}
+.c3-explore-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  /* Fade out: opacity over 0.35s, then hide visibility after fade completes */
+  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+}
+.c3-explore-panel--active {
+  /* position stays absolute — no layout change */
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  /* Fade in: show visibility immediately, opacity fades in */
+  transition: opacity 0.35s ease, visibility 0s linear 0s;
+}
 
 /* Mosaic: padded, asymmetric alternating-width grid
    Row 1: tile-1 wide (3fr), tile-2 narrow (2fr)
@@ -434,6 +562,11 @@ html.concept-3 body { overflow: visible; height: auto; }
 .c3-mosaic--rewards .c3-mosaic-tile--2 { background: #CBCAC8; }
 .c3-mosaic--rewards .c3-mosaic-tile--3 { background: #A8A49E; }
 .c3-mosaic--rewards .c3-mosaic-tile--4 { background: #8B8880; }
+/* Lindt for Business — cooler blue-grey tones */
+.c3-mosaic--business .c3-mosaic-tile--1 { background: #D6DDE6; }
+.c3-mosaic--business .c3-mosaic-tile--2 { background: #B4BFCC; }
+.c3-mosaic--business .c3-mosaic-tile--3 { background: #8C9BAD; }
+.c3-mosaic--business .c3-mosaic-tile--4 { background: #5C6E82; }
 
 .c3-mosaic-overlay {
   position: absolute;
@@ -473,6 +606,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   padding: 72px 52px;
   border-top: 1px solid var(--border);
 }
+.c3-evergreen .c3-personal-label { display: block; text-align: center; margin-bottom: 10px; }
 .c3-evergreen .section-title { margin-bottom: 32px; text-align: center; }
 
 .c3-evergreen-grid {
@@ -712,6 +846,8 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-explore-tab--active { font-size: 24px; }
   /* Panel padding */
   .c3-explore-panel { padding: 20px 20px 0; }
+  /* Fixed height for mobile: 4 rows × 56vw + 3 gaps × 4px + 20px panel padding */
+  .c3-explore-body { height: calc(224vw + 32px); }
   /* Stack tiles vertically on mobile */
   .c3-mosaic {
     grid-template-columns: 1fr;
