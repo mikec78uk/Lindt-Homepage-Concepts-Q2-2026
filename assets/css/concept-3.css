@@ -823,16 +823,23 @@ html.concept-3 body { overflow: visible; height: auto; }
     scroll-snap-align: start;
   }
 
+  /* ── Recommends mobile ───────────────────────────────────────── */
+  .c3-recommends .section-title { font-size: 28px; }
+
+  /* ── Categories mobile ───────────────────────────────────────── */
+  .c3-categories .section-title { font-size: 28px; text-align: center; }
+
   /* ── Personalised Gifts mobile: stacked ─────────────────────── */
   .c3-personal { grid-template-columns: 1fr; min-height: 0; padding: 32px 20px; gap: 0; }
   .c3-personal-img { height: 260px; border-radius: 4px; }
   .c3-personal-body { padding: 32px 0 0; gap: 16px; }
-  .c3-personal-title { font-size: 32px; }
+  .c3-personal-title { font-size: 28px; }
   .c3-personal-text { max-width: 100%; }
 
   /* ── Explore Lindt mobile ────────────────────────────────────── */
   .c3-explore { padding-bottom: 32px; }
-  .c3-explore-header { padding: 40px 20px 0; align-items: flex-start; }
+  .c3-explore-header { padding: 40px 20px 0; align-items: center; }
+  .c3-explore-eyebrow { text-align: center; width: 100%; }
   .c3-explore-tabs {
     justify-content: flex-start;
     overflow-x: auto;
@@ -844,7 +851,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   }
   .c3-explore-tabs::-webkit-scrollbar { display: none; }
   .c3-explore-tab { scroll-snap-align: center; font-size: 16px; padding: 8px 16px 12px; }
-  .c3-explore-tab--active { font-size: 24px; }
+  .c3-explore-tab--active { font-size: 28px; }
   /* Panel padding */
   .c3-explore-panel { padding: 20px 20px 0; }
   /* Fixed height for mobile: 4 rows × 56vw + 3 gaps × 4px + 20px panel padding */
@@ -866,7 +873,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 
   /* ── Evergreen mobile: horizontal scroll ───────────────────── */
   .c3-evergreen { padding: 48px 0; }
-  .c3-evergreen .section-title { padding: 0 20px; }
+  .c3-evergreen .section-title { padding: 0 20px; font-size: 28px; }
   .c3-evergreen-grid {
     display: flex;
     flex-direction: row;

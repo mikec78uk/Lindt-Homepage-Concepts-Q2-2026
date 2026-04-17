@@ -206,10 +206,7 @@
 
   function centreTab(tab) {
     if (!exploreNav || window.innerWidth > 768) return;
-    var navW  = exploreNav.offsetWidth;
-    var tabL  = tab.offsetLeft;
-    var tabW  = tab.offsetWidth;
-    exploreNav.scrollLeft = tabL - (navW / 2) + (tabW / 2);
+    tab.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' });
   }
 
   exploreTabs.forEach(function (tab) {
@@ -227,9 +224,12 @@
     });
   });
 
-  // Centre the initially active tab on mobile load
+  // Centre the initially active tab on mobile load (defer until fonts/layout are ready)
   var initialActive = document.querySelector('.c3-explore-tab--active');
-  if (initialActive) centreTab(initialActive);
+  if (initialActive) {
+    centreTab(initialActive);
+    window.addEventListener('load', function () { centreTab(initialActive); });
+  }
 
   /* ──────────────────────────────────────────────────────────
      NEWSLETTER FLOAT — dismiss on X click
