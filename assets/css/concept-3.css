@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: rgb(248, 247, 245);
   }
   .c3-utility-usp {
     flex: 1;
@@ -23,20 +24,26 @@
   }
   .c3-utility-usp .usp-msg {
     justify-content: flex-start;
-    color: var(--white);
+    color: #1A1A1A;
     opacity: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .c3-utility-usp .usp-msg.usp-active {
-    opacity: 0.8;
+    opacity: 0.9;
   }
   .c3-utility-links {
     display: flex;
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
+    color: #1A1A1A;
+  }
+  .c3-utility-links a,
+  .c3-utility-links .sep,
+  .c3-utility-links span {
+    color: #1A1A1A;
   }
 }
 
