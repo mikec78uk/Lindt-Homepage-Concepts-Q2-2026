@@ -24,8 +24,9 @@
 
   if (!slides.length) return;
 
-  const INTERVAL   = 5000;
-  const DARK_SLIDES = [2]; // slide indices that need light-coloured controls
+  const INTERVAL      = 5000;
+  const DARK_SLIDES   = [2]; // slide indices that need light-coloured controls
+  const VIDEO_SLIDES  = [0]; // only these slides show the play/pause button
 
   let current  = 0;
   let isPaused = false;
@@ -58,6 +59,11 @@
       } else {
         carousel.classList.remove('c3-dark-controls');
       }
+    }
+
+    // Show pause button only on video slides
+    if (pauseBtn) {
+      pauseBtn.style.visibility = VIDEO_SLIDES.includes(current) ? 'visible' : 'hidden';
     }
 
   }
@@ -247,6 +253,32 @@
      INIT
      ────────────────────────────────────────────────────────── */
   goTo(0);
+
+})();
+
+/* ============================================================
+   GIFTING BESTSELLERS CAROUSEL — prev/next arrow navigation
+   ============================================================ */
+(function () {
+  'use strict';
+
+  if (!document.documentElement.classList.contains('concept-3')) return;
+
+  var ppGrid = document.querySelector('.c3-pp-grid');
+  var ppPrev = document.querySelector('.c3-pp-prev');
+  var ppNext = document.querySelector('.c3-pp-next');
+
+  if (!ppGrid || !ppPrev || !ppNext) return;
+
+  function scrollByCard(dir) {
+    var card = ppGrid.querySelector('.product-card');
+    if (!card) return;
+    var amount = (card.offsetWidth + 16) * dir;
+    ppGrid.scrollBy({ left: amount, behavior: 'smooth' });
+  }
+
+  ppPrev.addEventListener('click', function () { scrollByCard(-1); });
+  ppNext.addEventListener('click', function () { scrollByCard(1); });
 
 })();
 

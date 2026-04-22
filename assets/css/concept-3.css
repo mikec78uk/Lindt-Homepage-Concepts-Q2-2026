@@ -47,6 +47,30 @@
   }
 }
 
+/* ── Content max-width: 1320px centred, backgrounds full-bleed ── */
+/* Formula: min side-padding is 52px; grows once viewport > 1424px */
+@media (min-width: 769px) {
+  html.concept-3 {
+    --c3-h-pad: max(52px, calc((100vw - 1320px) / 2));
+  }
+
+  /* Desktop logo size */
+  html.concept-3 .logo-img--desktop { height: 36px; }
+
+  /* Header: utility bar + logo row constrained to 1320px */
+  html.concept-3 .header-utility,
+  html.concept-3 .header-main {
+    padding-left: var(--c3-h-pad);
+    padding-right: var(--c3-h-pad);
+  }
+
+  /* Footer: constrained to 1320px, background stays full-bleed */
+  html.concept-3 .slide--footer {
+    padding-left: var(--c3-h-pad);
+    padding-right: var(--c3-h-pad);
+  }
+}
+
 /* ── Page scroll ─────────────────────────────────────────────── */
 html.concept-3 { overflow: auto; height: auto; }
 html.concept-3 body { overflow: visible; height: auto; }
@@ -221,7 +245,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 
 /* ── C3: Lindt Recommends ───────────────────────────────────── */
 .c3-recommends {
-  padding: 64px 52px 56px;
+  padding: 64px var(--c3-h-pad) 56px;
   border-top: 1px solid var(--border);
 }
 .c3-recommends .section-title { margin-bottom: 0; }
@@ -236,7 +260,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 /* ── C3: Category roundels ─────────────────────────────────── */
 .c3-categories {
   background: var(--gray-100);
-  padding: 64px 52px 56px;
+  padding: 64px var(--c3-h-pad) 56px;
   border-top: 1px solid var(--border);
 }
 .c3-categories .c3-personal-label { display: block; text-align: center; margin-bottom: 10px; }
@@ -255,14 +279,30 @@ html.concept-3 body { overflow: visible; height: auto; }
 }
 .c3-roundel-grid .roundel-item { max-width: 160px; min-width: 0; }
 
+@media (min-width: 769px) {
+  .c3-roundel-grid {
+    overflow-x: hidden; /* no horizontal scroll on desktop */
+  }
+  .c3-roundel-grid .roundel-item {
+    max-width: none; /* let flex fill evenly — ~180px at 1320px content width */
+  }
+}
+
 /* Grey circles — no images */
 .concept-3 .roundel-img-wrap { background: #D0CCC6; }
 
 /* ── C3: Content Blocks (2×2 desktop, stacked mobile) ─────── */
 .c3-content {
   background: var(--white);
-  padding: 72px 52px;
+  padding: 72px var(--c3-h-pad);
   border-top: 1px solid var(--border);
+}
+
+/* Larger add-to-basket button on product tiles */
+.concept-3 .product-add {
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
 }
 
 /* Customise badge — bottom-left */
@@ -274,6 +314,58 @@ html.concept-3 body { overflow: visible; height: auto; }
   color: var(--gold);
   border: 1.5px solid var(--gold);
 }
+
+/* ── Gifting Bestsellers carousel (inside c3-personal) ───────── */
+.c3-personal-products {
+  grid-column: 1 / -1;
+  padding-top: 40px;
+  min-width: 0; /* prevent grid item expanding beyond track width */
+}
+.c3-pp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.c3-pp-title {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--black);
+}
+.c3-pp-controls {
+  display: flex;
+  gap: 8px;
+}
+.c3-pp-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  transition: border-color 0.2s, color 0.2s;
+}
+.c3-pp-btn:hover { border-color: var(--gold); color: var(--gold); }
+.c3-pp-grid {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+.c3-pp-grid::-webkit-scrollbar { display: none; }
+.c3-pp-grid .product-card {
+  flex: 1 1 0;   /* grow AND shrink equally — prevents overflow blowout */
+  min-width: 0;
+}
+.c3-personal-products .products-cta { margin-top: 32px; text-align: center; }
 
 /* PDP-style button: white circle with gold outline + chevron */
 .product-add--pdp {
@@ -295,7 +387,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   grid-template-columns: 1fr 1fr;
   min-height: 520px;
   border-top: 1px solid var(--border);
-  padding: 52px 52px 52px 52px;
+  padding: 52px var(--c3-h-pad);
   gap: 52px;
   background: var(--white);
 }
@@ -438,7 +530,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   padding-bottom: 52px;
 }
 .c3-explore-header {
-  padding: 52px 52px 0;
+  padding: 52px var(--c3-h-pad) 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -531,7 +623,7 @@ html.concept-3 body { overflow: visible; height: auto; }
    Row 1: tile-1 wide (3fr), tile-2 narrow (2fr)
    Row 2: tile-3 narrow (2fr), tile-4 wide (3fr)          */
 .c3-explore-panel {
-  padding: 30px 52px 0;
+  padding: 30px var(--c3-h-pad) 0;
 }
 .c3-mosaic {
   display: grid;
@@ -611,7 +703,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 /* ── C3: Evergreen Topics (no images) ─────────────────────── */
 .c3-evergreen {
   background: var(--gray-100);
-  padding: 72px 52px;
+  padding: 72px var(--c3-h-pad);
   border-top: 1px solid var(--border);
 }
 .c3-evergreen .c3-personal-label { display: block; text-align: center; margin-bottom: 10px; }
@@ -671,7 +763,7 @@ html.concept-3 body { overflow: visible; height: auto; }
 /* ── C3: Instagram Widget ───────────────────────────────────── */
 .c3-instagram {
   background: var(--white);
-  padding: 72px 52px;
+  padding: 72px var(--c3-h-pad);
   border-top: 1px solid var(--border);
 }
 
@@ -825,8 +917,8 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-roundel-grid::-webkit-scrollbar { display: none; }
   .c3-roundel-grid .roundel-item {
     flex: 0 0 auto;
-    width: 28vw;
-    max-width: 110px;
+    width: calc((100vw - 52px) / 2.5);
+    max-width: none;
     scroll-snap-align: start;
   }
 
@@ -836,10 +928,21 @@ html.concept-3 body { overflow: visible; height: auto; }
   /* ── Categories mobile ───────────────────────────────────────── */
   .c3-categories .section-title { font-size: 28px; text-align: center; }
 
+  /* ── Mobile header icons gap ────────────────────────────────── */
+  html.concept-3 .header-icons { gap: 22px; }
+
+  /* ── Video controls: bottom-right on mobile ─────────────────── */
+  .c3-video-controls {
+    left: auto;
+    right: 16px;
+  }
+
   /* ── Personalised Gifts mobile: stacked ─────────────────────── */
   .c3-personal { grid-template-columns: 1fr; min-height: 0; padding: 32px 20px; gap: 0; }
   .c3-personal-img { height: 260px; border-radius: 4px; }
   .c3-personal-body { padding: 32px 0 0; gap: 16px; }
+  .c3-personal-products { padding-top: 32px; }
+  .c3-pp-grid .product-card { flex: 0 0 70vw; }
   .c3-personal-title { font-size: 28px; }
   .c3-personal-text { max-width: 100%; }
 
@@ -941,10 +1044,12 @@ html.concept-3 body { overflow: visible; height: auto; }
     transform: translateY(0) !important;
   }
 
-  /* Roundels + evergreen: reveal all at once — placed after the general rule
+  /* Roundels + evergreen + carousel: reveal all at once — placed after the general rule
      and with higher specificity so these win the !important battle */
   html.concept-3 .c3-roundel-grid .roundel-item[data-reveal],
-  html.concept-3 .c3-ev-card[data-reveal] {
+  html.concept-3 .c3-ev-card[data-reveal],
+  html.concept-3 .c3-pp-grid .product-card[data-reveal],
+  html.concept-3 .c3-pp-header[data-reveal] {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
@@ -953,7 +1058,10 @@ html.concept-3 body { overflow: visible; height: auto; }
 }
 
 /* ── C3: Newsletter floating prompt ──────────────────────────── */
-.c3-newsletter-float {
+/* Temporarily hidden — uncomment display rule to re-enable */
+.c3-newsletter-float { display: none !important; }
+
+.c3-newsletter-float--hidden-override {
   position: fixed;
   bottom: 24px;
   left: 24px;
