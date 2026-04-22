@@ -890,9 +890,10 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-controls-pill { bottom: 14px; right: 14px; gap: 6px; }
 
 
-  /* Products grid: 20px left inset matching page gutter */
+  /* Products grid: 20px gutter each side, trailing gap included */
   .concept-3 .products-grid {
-    padding-left: 20px;  /* overrides main.css padding-left: 0 */
+    padding-left: 20px;
+    padding-right: 20px;
     scroll-padding-left: 20px;
   }
 
@@ -923,6 +924,18 @@ html.concept-3 body { overflow: visible; height: auto; }
   }
 
   /* ── Recommends mobile ───────────────────────────────────────── */
+  /* Section has no horizontal padding — carousels handle their own gaps */
+  .c3-recommends { padding-left: 0; padding-right: 0; }
+  /* Header has no horizontal padding — children handle their own indent */
+  .c3-recommends .products-header { padding-left: 0; padding-right: 0; }
+  .c3-recommends .section-title   { padding-left: 20px; padding-right: 20px; }
+  .c3-recommends .products-cta    { padding-left: 20px; padding-right: 20px; }
+  /* Pills scroll edge-to-edge with leading + trailing gap */
+  .c3-recommends .filter-tabs {
+    padding-left: 20px;
+    padding-right: 20px;
+    scroll-padding-left: 20px;
+  }
   .c3-recommends .section-title { font-size: 28px; }
 
   /* ── Categories mobile ───────────────────────────────────────── */
@@ -941,7 +954,22 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-personal { grid-template-columns: 1fr; min-height: 0; padding: 32px 20px; gap: 0; }
   .c3-personal-img { height: 260px; border-radius: 4px; }
   .c3-personal-body { padding: 32px 0 0; gap: 16px; }
-  .c3-personal-products { padding-top: 32px; }
+  /* Break out of section's 20px padding so carousel is edge-to-edge */
+  .c3-personal-products {
+    padding-top: 32px;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+  }
+  /* Header and CTA stay indented */
+  .c3-pp-header { padding: 0 20px; }
+  .c3-personal-products .products-cta { padding: 0 20px; }
+  /* Grid handles its own leading and trailing gaps */
+  .c3-pp-grid {
+    padding-left: 20px;
+    padding-right: 20px;
+    scroll-padding-left: 20px;
+  }
   .c3-pp-grid .product-card { flex: 0 0 70vw; }
   .c3-personal-title { font-size: 28px; }
   .c3-personal-text { max-width: 100%; }
