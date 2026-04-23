@@ -922,7 +922,7 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-explore-body { height: calc(420px * 2 + 6px + 30px); }
   .c3-mosaic { grid-template-rows: 420px 420px; }
 
-  /* Evergreen: horizontal scroll at tablet — 3 visible + peek of 4th */
+  /* Evergreen: horizontal scroll at tablet — 2.5 cards visible */
   .c3-evergreen-grid {
     display: flex;
     overflow-x: auto;
@@ -934,10 +934,17 @@ html.concept-3 body { overflow: visible; height: auto; }
   }
   .c3-evergreen-grid::-webkit-scrollbar { display: none; }
   .c3-ev-card {
-    flex: 0 0 calc(33.333% - 11px);
+    flex: 0 0 calc(38% - 8px);
     aspect-ratio: unset;
     height: 420px;
     scroll-snap-align: start;
+  }
+  /* Reveal all ev-cards at once — no staggered scroll animation */
+  html.concept-3 .c3-ev-card[data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    transition-delay: 0ms !important;
   }
 
   /* Instagram: reduce row heights */
