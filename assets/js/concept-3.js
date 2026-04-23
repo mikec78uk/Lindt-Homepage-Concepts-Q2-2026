@@ -200,8 +200,18 @@
   }
 
   initMobileScroll();
-  /* Also catch the case where the user resizes into mobile width */
-  window.addEventListener('resize', initMobileScroll, { passive: true });
+  /* Catch resize into tablet/mobile — reset flag when crossing the 1100px
+     boundary so posSearch() runs again and correctly positions the bar */
+  var _prevAbove1100 = window.innerWidth > 1100;
+  window.addEventListener('resize', function () {
+    var aboveNow = window.innerWidth > 1100;
+    if (_prevAbove1100 && !aboveNow) {
+      /* Crossed from desktop → tablet/mobile: allow re-init */
+      _mobileScrollReady = false;
+    }
+    _prevAbove1100 = aboveNow;
+    initMobileScroll();
+  }, { passive: true });
 
   /* ──────────────────────────────────────────────────────────
      EXPLORE LINDT — tab switching

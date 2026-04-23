@@ -863,6 +863,7 @@ html.concept-3 body { overflow: visible; height: auto; }
     position: fixed;
     left: 0;
     right: 0;
+    top: 90px; /* CSS fallback — JS overrides dynamically once it runs */
     z-index: 999;
     align-items: center;
     padding: 8px 14px;
