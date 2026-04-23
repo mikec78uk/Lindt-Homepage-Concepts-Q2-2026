@@ -71,12 +71,13 @@
   }
 }
 
-/* ── Desktop header: logo left-aligned, wider search ────────── */
+/* ── Desktop header: logo left-aligned, wider search, nav left ── */
 @media (min-width: 1101px) {
   html.concept-3 .header-main { grid-template-columns: auto 1fr; gap: 32px; }
   html.concept-3 .header-main .logo-link { grid-column: 1; }
   html.concept-3 .header-main .header-right { grid-column: 2; justify-self: end; }
   html.concept-3 .header-search input { width: 340px; }
+  html.concept-3 .header-nav { justify-content: flex-start; padding-left: var(--c3-h-pad); padding-right: var(--c3-h-pad); }
 }
 
 /* ── Page scroll ─────────────────────────────────────────────── */
