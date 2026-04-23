@@ -1095,44 +1095,24 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-explore-tabs::-webkit-scrollbar { display: none; }
   .c3-explore-tab { scroll-snap-align: center; font-size: 16px; padding: 8px 16px 12px; }
   .c3-explore-tab--active { font-size: 28px; }
-  /* Body: auto height, allow scroll to escape overflow:hidden */
-  .c3-explore-body { height: auto; overflow: visible; }
-  /* Panels: static flow on mobile — instant show/hide, no crossfade */
-  .c3-explore-panel {
-    position: relative;
-    display: none;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transition: none;
-    padding: 20px 0 0; /* no horizontal — mosaic handles its own gaps */
-  }
-  .c3-explore-panel--active { display: block; }
-  /* Horizontal scroll row — shows one tile + peek of the next */
+  /* Panel padding */
+  .c3-explore-panel { padding: 20px 20px 0; }
+  /* Fixed height for mobile: 4 rows × 56vw + 3 gaps × 4px + 20px panel padding */
+  .c3-explore-body { height: calc(224vw + 32px); }
+  /* Stack tiles vertically on mobile */
   .c3-mosaic {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 20px;
-    scrollbar-width: none;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 8px;
-    grid-template-columns: unset;
-    grid-template-rows: unset;
-    height: 80vw;
+    grid-template-columns: 1fr;
+    grid-template-rows: 56vw 56vw 56vw 56vw;
+    gap: 4px;
   }
-  .c3-mosaic::-webkit-scrollbar { display: none; }
   .c3-mosaic-tile--1,
   .c3-mosaic-tile--2,
   .c3-mosaic-tile--3,
-  .c3-mosaic-tile--4 {
-    flex: 0 0 80vw;
-    height: 80vw;
-    scroll-snap-align: start;
-    grid-column: unset !important;
-    grid-row: unset !important;
-  }
+  .c3-mosaic-tile--4 { grid-column: 1; }
+  .c3-mosaic-tile--1 { grid-row: 1; }
+  .c3-mosaic-tile--2 { grid-row: 2; }
+  .c3-mosaic-tile--3 { grid-row: 3; }
+  .c3-mosaic-tile--4 { grid-row: 4; }
 
   /* ── Evergreen mobile: horizontal scroll ───────────────────── */
   .c3-evergreen { padding: 48px 0; }
