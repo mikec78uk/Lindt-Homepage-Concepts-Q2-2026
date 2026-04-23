@@ -71,6 +71,14 @@
   }
 }
 
+/* ── Desktop header: logo left-aligned, wider search ────────── */
+@media (min-width: 1101px) {
+  html.concept-3 .header-main { grid-template-columns: auto 1fr; gap: 32px; }
+  html.concept-3 .header-main .logo-link { grid-column: 1; }
+  html.concept-3 .header-main .header-right { grid-column: 2; justify-self: end; }
+  html.concept-3 .header-search input { width: 340px; }
+}
+
 /* ── Page scroll ─────────────────────────────────────────────── */
 html.concept-3 { overflow: auto; height: auto; }
 html.concept-3 body { overflow: visible; height: auto; }
