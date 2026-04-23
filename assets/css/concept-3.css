@@ -907,8 +907,23 @@ html.concept-3 body { overflow: visible; height: auto; }
   .c3-explore-body { height: calc(420px * 2 + 6px + 30px); }
   .c3-mosaic { grid-template-rows: 420px 420px; }
 
-  /* Evergreen: 2 columns instead of 4 */
-  .c3-evergreen-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Evergreen: horizontal scroll at tablet — 3 visible + peek of 4th */
+  .c3-evergreen-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    gap: 16px;
+    grid-template-columns: unset;
+  }
+  .c3-evergreen-grid::-webkit-scrollbar { display: none; }
+  .c3-ev-card {
+    flex: 0 0 calc(33.333% - 11px);
+    aspect-ratio: unset;
+    height: 420px;
+    scroll-snap-align: start;
+  }
 
   /* Instagram: reduce row heights */
   .c3-ig-grid { grid-template-rows: 160px 160px; }
