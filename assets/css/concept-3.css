@@ -78,6 +78,12 @@
   html.concept-3 .header-main .header-right { grid-column: 2; justify-self: end; }
   html.concept-3 .header-search input { width: 340px; }
   html.concept-3 .header-nav { justify-content: flex-start; padding-left: var(--c3-h-pad); padding-right: var(--c3-h-pad); }
+  /* Remove indent from first nav item so it aligns with logo */
+  html.concept-3 .header-nav a:first-child { padding-left: 0; }
+  /* Remove top/bottom padding from utility bar */
+  html.concept-3 .header-utility { padding-top: 0; padding-bottom: 0; }
+  /* Logo height */
+  html.concept-3 .logo-img--desktop { height: 40px; }
 }
 
 /* ── Page scroll ─────────────────────────────────────────────── */
