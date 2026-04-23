@@ -111,6 +111,9 @@ html.concept-3 body { overflow: visible; height: auto; }
   html.concept-3 .site-main { padding-top: var(--hdr-desktop); }
 }
 
+/* ── C3: Product cards — square corners ─────────────────────── */
+.concept-3 .product-card { border-radius: 0; }
+
 /* ── C3: Hero Carousel ───────────────────────────────────────── */
 .c3-hero-products {
   background: var(--white);
