@@ -823,6 +823,67 @@ html.concept-3 body { overflow: visible; height: auto; }
    ============================================================ */
 @media (min-width: 769px) and (max-width: 1100px) {
 
+  /* ── Header: use mobile layout ──────────────────────────────── */
+  html.concept-3 .desktop-only { display: none !important; }
+  html.concept-3 .mobile-only  { display: block !important; }
+  html.concept-3 .header-hamburger.mobile-only { display: flex !important; }
+  html.concept-3 .header-main .header-icons.mobile-only { display: flex !important; }
+  html.concept-3 .logo-img--desktop { display: none !important; }
+  html.concept-3 .logo-img--mobile  { display: block !important; }
+
+  /* Header grid: logo left, icons right */
+  html.concept-3 .header-main {
+    grid-template-columns: auto 1fr auto;
+    padding: 10px 20px;
+    gap: 0;
+  }
+  html.concept-3 .header-main .logo-link { grid-column: 1; }
+  html.concept-3 .header-main .header-icons.mobile-only { grid-column: 3; justify-self: end; }
+  html.concept-3 .header-icons { gap: 22px; }
+  html.concept-3 .header-main .header-icons.mobile-only svg { width: 21px; height: 21px; }
+
+  /* ── Mobile search bar: show at tablet ──────────────────────── */
+  html.concept-3 #mobile-search {
+    display: flex !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    align-items: center;
+    padding: 8px 14px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    transition: top 0.35s ease;
+  }
+  html.concept-3 .mobile-search-inner {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gray-100);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 8px 14px;
+  }
+  html.concept-3 .mobile-search-inner .search-icon { flex-shrink: 0; color: var(--gray-600); }
+  html.concept-3 .mobile-search-inner input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-size: 13px;
+    color: var(--black);
+    border-radius: 0;
+  }
+  html.concept-3 .mobile-search-inner input::placeholder { color: var(--gray-600); }
+
+  /* Site-main: pad for header height + search bar height */
+  html.concept-3 .site-main { padding-top: 140px; }
+
+  /* Search icon in header: hide (search bar is always visible) */
+  .concept-3 .header-icons.mobile-only button[aria-label="Search"] { display: none !important; }
+
   /* Product tiles: scrollable carousel showing 3 at once — same as Gifting Bestsellers */
   .concept-3 .products-grid {
     display: flex;

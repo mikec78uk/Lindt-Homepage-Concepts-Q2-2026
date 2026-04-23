@@ -144,7 +144,7 @@
      DESKTOP HEADER — hide on scroll-down, reveal on scroll-up
      ────────────────────────────────────────────────────────── */
   (function initDesktopScroll() {
-    if (window.innerWidth <= 768) return;
+    if (window.innerWidth <= 1100) return;
     var lastY = 0;
     window.addEventListener('scroll', function () {
       var cur = window.scrollY;
@@ -170,7 +170,7 @@
   var _mobileScrollReady = false;
 
   function initMobileScroll() {
-    if (_mobileScrollReady || window.innerWidth > 768) return;
+    if (_mobileScrollReady || window.innerWidth > 1100) return;
     _mobileScrollReady = true;
 
     var hdr = document.getElementById('site-header');
